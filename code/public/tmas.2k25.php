@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendário de Eventos dos Terceiros 2K25</title>
+  <?php
+  require_once '../Templates/link.html';
+  ?>
+  <style>
+    /* Configuração geral do site */
+    body {
+      background-color: black;
+      color: aliceblue;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    /* Cabeçalho */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background-color: #00478e;
+      /* Azul mais escuro */
+      border-bottom: 3px solid #ffe300;
+      /* Linha laranja */
+    }
+
+    .logo {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+      /* Deixa a logo mais harmoniosa */
+    }
+
+    /* Menu de navegação */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+      transition: 0.3s;
+    }
+
+
+    /* Mensagem de boas-vindas */
+    .event-message {
+      background-color: #002244;
+      color: #ffcc00;
+      /* Amarelo */
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #ffcc00;
+      /* Borda laranja */
+      box-shadow: 0 0 10px #ffcc00;
+      max-width: 600px;
+      margin: 20px auto;
+      line-height: 1.5;
+    }
+
+    /* Estilização do calendário */
+    table {
+      width: 100%;
+      max-width: 100%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background-color: #002244;
+      color: white;
+    }
+
+    th,
+    td {
+      border: 1px solid #ffcc00;
+      /* Borda laranja */
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #007acc;
+      /* Azul claro */
+    }
+
+    .event {
+      background-color: #ddb100fc;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* Seção de Contato */
+    .contact-section {
+      text-align: center;
+      background-color: #002244;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 100%;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-form label {
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ffcc00;
+      border-radius: 5px;
+      background-color: #003366;
+      color: white;
+    }
+
+    .contact-form button {
+      background-color: #ffcc00;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #ff4500;
+    }
+
+    .frame {
+      width: 90%;
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    button {
+      margin: 20px;
+    }
+
+    .custom-btn {
+      width: 130px;
+      height: 40px;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px 25px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+      box-shadow: inset 2px 2px 2px 0px #ffcc00,
+        7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+        4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+      outline: none;
+      text-align: center;
+    }
+
+    /* 10 */
+    .btn-10 {
+      background: #000;
+      color: #fff;
+      font-weight: 800;
+      border: none;
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+
+    .btn-10:after {
+      position: absolute;
+      content: ' ';
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      transition: all 0.3s ease;
+      -webkit-transform: scale(0.1);
+      transform: scale(0.1);
+    }
+
+    .btn-10:hover {
+      color: #020101;
+      border: none;
+      background: transparent;
+    }
+
+    .btn-10:hover:after {
+      background: #00fffc;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img
+      src="../tmas.jpg"
+      alt="Logo dos Terceiros de Meio Ambiente 2K25"
+      class="logo" />
+    <nav>
+      <ul>
+        <li>
+          <div height="100px" widht="100px">
+            <?php include '../Templates/claro_escuro.html'; ?>
+          </div>
+        </li>
+        <li><a href="#eventos" class="custom-btn btn-3">Eventos</a></li>
+        <li><a href="#sobre" class="custom-btn btn-3">Sobre Nós</a></li>
+        <li><a href="#contato" class="custom-btn btn-3">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sobre">
+      <h2>Sobre Nós</h2>
+      <p class="event-message">
+        Olá, calouros! Aqui quem fala são os Terceiro de Meio Ambiente. Sejam
+        bem-vindos ao nosso calendário oficial de eventos! 🎉
+        <br /><br />
+        Fiquem atentos, porque este será o nosso canal para divulgar todas as
+        atividades, desafios e momentos épicos que preparamos para vocês ao
+        longo do ano. Desde trotes inesquecíveis até eventos temáticos, tudo
+        estará registrado aqui com datas e detalhes.
+        <br /><br />
+        Preparem-se para muita diversão, integração e, claro, surpresas! Não
+        deixem de acompanhar para não perder nada. 🚀🔥
+      </p>
+    </section>
+    <h2>Calendário de Eventos dos Terceiros 2K25</h2>
+    <!-- Calendário -->
+    <table id="eventos">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Evento</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>24/02/2025</td>
+          <td class="event">Trote da Fantasia</td>
+        </tr>
+        <tr>
+          <td>25/02/2025</td>
+          <td class="event">Dia do Pijama</td>
+        </tr>
+        <tr>
+          <td>26/02/2025</td>
+          <td class="event">Gincana dos Terceiros</td>
+        </tr>
+        <tr>
+          <td>27/02/2025</td>
+          <td class="event">Festa Junina</td>
+        </tr>
+        <tr>
+          <td>28/02/2025</td>
+          <td class="event">Calourada</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <section class="contact-section">
+      <h2>Contato</h2>
+      <p>Entre em contato conosco:</p>
+
+      <form class="contact-form">
+        <label for="name">Nome:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Seu nome"
+          required />
+
+        <label for="email">E-mail:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Seu e-mail"
+          required />
+
+        <label for="message">Mensagem:</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Digite sua mensagem"
+          required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+</body>
+
+</html>
