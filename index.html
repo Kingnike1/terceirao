@@ -215,8 +215,13 @@
             } else if (curso === "agropecuaria") {
                 window.location.href = "./public/ta.s2k25.html";
             }
-        }, 1000);
+        }, 2000);
     }
+    window.onpageshow = function(event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        };
 </script>
 
 </head>

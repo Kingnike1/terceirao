@@ -317,6 +317,11 @@
         document.getElementById('claro-escuro').innerHTML = html;
       })
       .catch(error => console.error('Erro ao carregar o template:', error));
+      window.onpageshow = function(event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        };
     </script>
 </body>
 
