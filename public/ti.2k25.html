@@ -249,6 +249,57 @@
         .btn-3 span:hover:after {
             width: 100%;
         }
+        @media screen and (max-width: 768px) {
+        /* Ajusta o cabeçalho */
+        header {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        /* Ajusta a logo para telas pequenas */
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        /* Ajusta a navegação para telas pequenas */
+        nav ul {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Ajusta a tabela para telas pequenas */
+        table {
+            font-size: 14px;
+        }
+
+        /* Ajusta os formulários */
+        .contact-form input, .contact-form textarea, .contact-form button {
+            padding: 10px;
+        }
+    }
+
+    /* Responsividade para telas menores que 480px */
+    @media screen and (max-width: 480px) {
+        /* Aumenta o tamanho da fonte do título */
+        h2 {
+            font-size: 1.5em;
+        }
+
+        .contact-form {
+            padding: 15px;
+        }
+
+        /* Ajusta o botão para telas muito pequenas */
+        .contact-form button {
+            padding: 10px;
+        }
+    }
     </style>
 </head>
 
