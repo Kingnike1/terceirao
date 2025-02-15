@@ -5,9 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calendário de Eventos dos Terceiros 2K25</title>
-  <?php
-  require_once '../Templates/link.html';
-  ?>
+  <link rel="stylesheet" href="../Templates/link.html">
   <style>
     /* Configuração geral do site */
     body {
@@ -232,8 +230,7 @@
     <nav>
       <ul>
         <li>
-          <div height="100px" widht="100px">
-            <?php include '../Templates/claro_escuro.html'; ?>
+          <div id="claro-escuro">
           </div>
         </li>
         <li><a href="#eventos" class="custom-btn btn-3">Eventos</a></li>
@@ -247,7 +244,7 @@
     <section id="sobre">
       <h2>Sobre Nós</h2>
       <p class="event-message">
-        Olá, calouros! Aqui quem fala são os Terceiro de Meio Ambiente. Sejam
+        Olá, calouros! Aqui quem fala são os Terceiros de Meio Ambiente. Sejam
         bem-vindos ao nosso calendário oficial de eventos! 🎉
         <br /><br />
         Fiquem atentos, porque este será o nosso canal para divulgar todas as
@@ -325,6 +322,16 @@
       </form>
     </section>
   </main>
+
+  <script>
+    // Código JavaScript para carregar o claro e escuro
+    fetch('../Templates/claro_escuro.html')
+      .then(response => response.text())
+      .then(html => {
+        document.getElementById('claro-escuro').innerHTML = html;
+      })
+      .catch(error => console.error('Erro ao carregar o template:', error));
+  </script>
 </body>
 
 </html>
