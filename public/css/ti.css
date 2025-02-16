@@ -13,20 +13,39 @@ body {
     align-items: center;
     padding: 10px 20px;
     background-color: #222;
-  }
+}
 
-  nav ul {
+.logo {
+    width: 80px; /* Ajuste conforme necessário */
+}
+
+.menu-toggle {
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    display: none;
+}
+
+nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
     padding: 0;
     margin: 0;
-  }
+}
 
-  nav ul li {
+nav ul li {
     display: flex;
     align-items: center;
-  }
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+
 
   main {
     padding: 20px;
@@ -374,8 +393,57 @@ body {
     max-width: 250px;
   }
 
-  /* Responsividade para o calendário */
+    /* Estilos de progresso e cabeçalho fixo */
+    .header {
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      width: 100%;
+      background-color: #222;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .progress-container {
+      width: 100%;
+      height: 8px;
+      background: #555;
+    }
+
+    .progress-bar {
+      height: 8px;
+      background: #ff5733;
+      width: 0%;
+    }
+  /* Responsivo para telas menores */
   @media screen and (max-width: 768px) {
+      .menu-toggle {
+          display: block;
+      }
+
+      nav ul {
+          display: none; /* Esconde os links inicialmente */
+          flex-direction: column;
+          position: absolute;
+          top: 60px;
+          right: 0;
+          background: #222;
+          width: 200px;
+          padding: 10px;
+          border-radius: 5px;
+      }
+
+      nav ul li {
+          margin: 10px 0;
+      }
+
+      nav.open ul {
+          display: flex;
+      }
+  }
+
+  /* Responsividade para o calendário */
+@media screen and (max-width: 768px) {
     #calendar {
       margin: 20px;
       font-size: 14px;
@@ -478,85 +546,4 @@ body {
     }
   }
 
-  /* Estilos de progresso e cabeçalho fixo */
-  .header {
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    width: 100%;
-    background-color: #222;
-    padding: 10px;
-    text-align: center;
-  }
 
-  .progress-container {
-    width: 100%;
-    height: 8px;
-    background: #555;
-  }
-
-  .progress-bar {
-    height: 8px;
-    background: #ff5733;
-    width: 0%;
-  }
-
-/* Estilização do cabeçalho */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #222;
-}
-
-.logo {
-    width: 80px; /* Ajuste conforme necessário */
-}
-
-.menu-toggle {
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
-    display: none;
-}
-
-.nav-menu ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-menu ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
-/* Responsividade para telas menores */
-@media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-
-    .nav-menu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: #222;
-        width: 200px;
-        padding: 10px;
-        border-radius: 5px;
-    }
-
-    .nav-menu ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .nav-menu.open {
-        display: flex;
-    }
-}

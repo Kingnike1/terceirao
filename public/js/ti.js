@@ -66,5 +66,18 @@ window.onpageshow = function (event) {
 }
 
 function toggleMenu() {
-    document.querySelector(".nav-menu").classList.toggle("open");
+  var menu = document.querySelector("nav");
+  menu.classList.toggle("open");
 }
+
+// Fechar o menu quando o clique for fora dele
+document.addEventListener("click", function(event) {
+  var menu = document.querySelector("nav");
+  var toggleButton = document.querySelector(".menu-toggle");
+
+  // Verifica se o clique foi fora do menu e do botão de menu
+  if (!menu.contains(event.target) && !toggleButton.contains(event.target)) {
+      menu.classList.remove("open");
+  }
+});
+
