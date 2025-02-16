@@ -1,0 +1,502 @@
+/* Estilos gerais */
+body {
+    background-color: black;
+    color: aliceblue;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #222;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+  }
+
+  nav ul li {
+    display: flex;
+    align-items: center;
+  }
+
+  main {
+    padding: 20px;
+    text-align: center;
+  }
+  #sobre{
+    margin-top: 200px;
+  }
+  .logo {
+    height: 100px;
+    width: 100px;
+  }
+
+  /* Estilos do calendário */
+  table {
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #333;
+    color: white;
+  }
+
+  th, td {
+    border: 1px solid #555;
+    padding: 10px;
+    text-align: center;
+  }
+
+  th {
+    background-color: #444;
+  }
+
+  .event {
+    background-color: #ff5733;
+    color: white;
+    font-weight: bold;
+  }
+
+  /* Estilo da mensagem do evento */
+  .event-message {
+    background-color: #222;
+    color: #ffcc00;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #ff5733;
+    box-shadow: 0 0 10px rgba(255, 87, 51, 0.8);
+    max-width: 600px;
+    margin: 20px auto;
+    line-height: 1.5;
+  }
+
+  /* Estilo da seção de contato */
+  .contact-section {
+    text-align: center;
+    background-color: #222;
+    color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 100%;
+    margin: 20px auto;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-form label {
+    font-weight: bold;
+    text-align: left;
+  }
+
+  .contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffcc00;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+  }
+
+  .contact-form button {
+    background-color: #ff5733;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .contact-form button:hover {
+    background-color: #ff2e00;
+  }
+  #typeWriter {
+
+        background-color: #ff5733; /* Cor laranja combinando com o tema */
+        color: white; /* Texto em branco */
+        font-weight: bold; /* Fonte em negrito */
+        padding: 12px 25px; /* Espaçamento interno */
+        border: none; /* Remover borda */
+        border-radius: 5px; /* Cantos arredondados */
+        cursor: pointer; /* Mostrar ponteiro ao passar o mouse */
+        font-family: 'Arial', sans-serif; /* Fonte do botão */
+        transition: all 0.3s ease; /* Animação suave para transições */
+        box-shadow: inset 2px 2px 2px 0px #0e0e0e, 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    }
+
+    #typeWriter:hover {
+        background-color: #ff2e00; /* Cor de fundo quando o mouse passa por cima */
+        box-shadow: inset 2px 2px 2px 0px #0e0e0e, 7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.2); /* Sombra mais intensa */
+      }
+  /* Estilos para o botão de scroll */
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 1000;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 30px;
+    backdrop-filter: blur(25px);
+  }
+
+  #myBtn:hover {
+    background-color: #ff5733;
+  }
+
+  /* Estilos para o botão customizado */
+  .custom-btn {
+    width: 130px;
+    height: 40px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 25px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px #0e0e0e, 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    outline: none;
+    text-align: center;
+  }
+
+  .btn-3 {
+    color: #fff;
+    font-weight: 800;
+    background: transparent;
+    width: 130px;
+    height: 40px;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+    text-align: center;
+  }
+
+  .btn-3 span {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .btn-3:before, .btn-3:after {
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 0;
+    background: #d36200;
+    transition: all 0.3s ease;
+  }
+
+  .btn-3:before {
+    height: 0%;
+    width: 2px;
+  }
+
+  .btn-3:after {
+    width: 0%;
+    height: 2px;
+  }
+
+  .btn-3:hover {
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .btn-3:hover:before {
+    height: 100%;
+  }
+
+  .btn-3:hover:after {
+    width: 100%;
+  }
+
+  .btn-3 span:hover {
+    color: #00fffc;
+  }
+
+  .btn-3 span:before, .btn-3 span:after {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    background: #00fffc;
+    transition: all 0.3s ease;
+  }
+
+  .btn-3 span:before {
+    width: 2px;
+    height: 0%;
+  }
+
+  .btn-3 span:after {
+    width: 0%;
+    height: 2px;
+  }
+
+  .btn-3 span:hover:before {
+    height: 100%;
+  }
+
+  .btn-3 span:hover:after {
+    width: 100%;
+  }
+
+  /* Estilos do calendário */
+#calendar {
+    width: 100%;
+    max-width: 100%;
+    margin: 40px auto;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  }
+
+  .fc-header-toolbar {
+    background-color: #222;
+    border-bottom: 2px solid #555;
+    padding: 10px;
+  }
+
+  .fc-header-toolbar .fc-button {
+    background-color: #ff5733;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+
+  .fc-header-toolbar .fc-button:hover {
+    background-color: #ff2e00;
+  }
+
+  .fc-header-toolbar .fc-button:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Estilo das células de dia */
+  .fc-day {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    font-weight: normal;
+    transition: background-color 0.3s ease;
+  }
+
+  .fc-day:hover {
+    background-color: #444;
+  }
+
+  /* Estilo para os dias com eventos */
+  .fc-day.fc-event {
+    background-color: #ff5733;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+  }
+
+  /* Estilo da célula de hoje */
+  .fc-day.fc-day-today {
+    background-color: #1abc9c;
+    color: white;
+    font-weight: bold;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Estilo das legendas */
+  .fc-day-header {
+    background-color: #444;
+    color: white;
+    padding: 15px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-right: 1px solid #555;
+  }
+
+  .fc-day-header:last-child {
+    border-right: none;
+  }
+
+  /* Estilo dos eventos */
+  .fc-event {
+    background-color: #ff5733;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+  }
+
+  .fc-event:hover {
+    background-color: #ff2e00;
+  }
+
+  /* Tooltip de evento */
+  .fc-event-tooltip {
+    background-color: #222;
+    color: #ff5733;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 87, 51, 0.8);
+    font-size: 16px;
+    text-align: center;
+    max-width: 250px;
+  }
+
+  /* Responsividade para o calendário */
+  @media screen and (max-width: 768px) {
+    #calendar {
+      margin: 20px;
+      font-size: 14px;
+    }
+
+    .fc-header-toolbar {
+      padding: 5px;
+    }
+
+    .fc-header-toolbar .fc-button {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+
+    .fc-day-header {
+      padding: 10px 0;
+      font-size: 12px;
+    }
+
+    .fc-day {
+      padding: 8px;
+    }
+
+    .fc-event {
+      font-size: 12px;
+      padding: 4px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .fc-header-toolbar .fc-button {
+      font-size: 10px;
+      padding: 4px 8px;
+    }
+
+    .fc-day {
+      padding: 6px;
+    }
+
+    .fc-event {
+      font-size: 10px;
+      padding: 3px;
+    }
+
+    .fc-day-header {
+      font-size: 10px;
+    }
+  }
+
+
+  /* Estilos de responsividade */
+  @media screen and (max-width: 768px) {
+    /* Ajusta o cabeçalho */
+    header {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    /* Ajusta a logo para telas pequenas */
+    .logo {
+      width: 80px;
+      height: 80px;
+      margin-bottom: 15px;
+    }
+
+    /* Ajusta a navegação para telas pequenas */
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    nav ul li {
+      margin-bottom: 10px;
+    }
+
+    /* Ajusta a tabela para telas pequenas */
+    table {
+      font-size: 14px;
+    }
+
+    /* Ajusta os formulários */
+    .contact-form input, .contact-form textarea, .contact-form button {
+      padding: 10px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    /* Aumenta o tamanho da fonte do título */
+    h2 {
+      font-size: 1.5em;
+    }
+
+    .contact-form {
+      padding: 15px;
+    }
+
+    /* Ajusta o botão para telas muito pequenas */
+    .contact-form button {
+      padding: 10px;
+    }
+  }
+
+  /* Estilos de progresso e cabeçalho fixo */
+  .header {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    background-color: #222;
+    padding: 10px;
+    text-align: center;
+  }
+
+  .progress-container {
+    width: 100%;
+    height: 8px;
+    background: #555;
+  }
+
+  .progress-bar {
+    height: 8px;
+    background: #ff5733;
+    width: 0%;
+  }
