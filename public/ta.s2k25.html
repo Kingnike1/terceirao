@@ -1,365 +1,351 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calendário de Eventos dos Terceiros 2K25</title>
-    <style>
-        /* Configuração geral */
-        body {
-            background-color: #000;
-            color: #000000;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        /* Cabeçalho */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background-color: #a00404;
-            border-bottom: 4px solid #000000;
-        }
-
-        /* Logo */
-        .logo {
-            height: 100px;
-            width: 100px;
-            border-radius: 50%;
-        }
-
-        /* Menu de navegação */
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-            padding: 0;
-            margin: 0;
-        }
-
-        nav ul li {
-            display: flex;
-            align-items: center;
-        }
-
-        /* Mensagem de boas-vindas */
-        .event-message {
-            background-color: #8a0707;
-            color: #FFFFFF;
-            font-size: 18px;
-            font-weight: bold;
-            text-align: center;
-            padding: 15px;
-            border-radius: 10px;
-            border: 2px solid #eebe00;
-            box-shadow: 0 0 10px rgba(241, 208, 77, 0.5);
-            max-width: 600px;
-            margin: 20px auto;
-            line-height: 1.5;
-        }
-
-        /* Estilização do calendário */
-        table {
-            width: 100%;
-            max-width: 100%;
-            margin: 20px auto;
-            border-collapse: collapse;
-            background-color: #991B1B;
-            color: #000000;
-        }
-
-        th,
-        td {
-            border: 1px solid #F1D04D;
-            padding: 10px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #7A1313;
-        }
-
-        .event {
-            background-color: #D87C4B;
-            color: #2C2C2C;
-            font-weight: bold;
-        }
-
-        /* Seção de Contato */
-        .contact-section {
-            text-align: center;
-            background-color: #991B1B;
-            color: #FFFFFF;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px auto;
-            box-shadow: 0 0 10px rgba(241, 208, 77, 0.3);
-        }
-
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .contact-form label {
-            font-weight: bold;
-            text-align: left;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #F1D04D;
-            border-radius: 5px;
-            background-color: #7A1313;
-            color: white;
-        }
-
-        .contact-form button {
-            background-color: #D87C4B;
-            color: #2C2C2C;
-            font-weight: bold;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .contact-form button:hover {
-            background-color: #F1D04D;
-            color: #991B1B;
-        }
-
-        .frame {
-            width: 90%;
-            margin: 40px auto;
-            text-align: center;
-        }
-
-        button {
-            margin: 20px;
-        }
-
-        .custom-btn {
-            width: 130px;
-            height: 40px;
-            color: #fff;
-            border-radius: 5px;
-            padding: 10px 25px;
-            font-family: 'Lato', sans-serif;
-            font-weight: 500;
-            background: transparent;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            display: inline-block;
-            box-shadow: inset 2px 2px 2px 0px #00fffc,
-                7px 7px 20px 0px rgba(0, 0, 0, .1),
-                4px 4px 5px 0px rgba(0, 0, 0, .1);
-            outline: none;
-            text-align: center;
-        }
-
-        .btn-12 {
-            position: relative;
-            right: 20px;
-            bottom: 20px;
-            border: none;
-            box-shadow: none;
-            width: 130px;
-            height: 40px;
-            line-height: 42px;
-            -webkit-perspective: 230px;
-            perspective: 230px;
-        }
-
-        .btn-12 span {
-            background: #000;
-            display: block;
-            font-weight: 800;
-            position: absolute;
-            width: 130px;
-            height: 40px;
-            box-shadow: inset 2px 2px 2px 0px #ffffff,
-                7px 7px 20px 0px rgba(0, 0, 0, .1),
-                4px 4px 5px 0px rgba(0, 0, 0, .1);
-            border-radius: 5px;
-            margin: 0;
-            text-align: center;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-            -webkit-transition: all .3s;
-            transition: all .3s;
-        }
-
-        .btn-12 span:nth-child(1) {
-            -webkit-transform: rotateX(90deg);
-            transform: rotateX(90deg);
-            -webkit-transform-origin: 50% 50% -20px;
-            transform-origin: 50% 50% -20px;
-        }
-
-        .btn-12 span:nth-child(2) {
-            -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-            -webkit-transform-origin: 50% 50% -20px;
-            transform-origin: 50% 50% -20px;
-        }
-
-        .btn-12:hover span:nth-child(1) {
-            background-color: #000000;
-            color: #ffffff;
-            font-weight: 800;
-            box-shadow: inset 2px 2px 2px 0px #c70000,
-                7px 7px 20px 0px rgba(0, 0, 0, .1),
-                4px 4px 5px 0px rgba(0, 0, 0, .1);
-            transform: rotateX(0deg);
-        }
-
-        .btn-12:hover span:nth-child(2) {
-            background-color: #7d0505;
-            color: #ffffff;
-            font-weight: 800;
-            box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
-                7px 7px 20px 0px rgba(0, 0, 0, .1),
-                4px 4px 5px 0px rgba(0, 0, 0, .1);
-            color: transparent;
-            transform: rotateX(-90deg);
-        }
-        @media screen and (max-width: 768px) {
-        /* Ajusta o cabeçalho */
-        header {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        /* Ajusta a logo para telas pequenas */
-        .logo {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 15px;
-        }
-
-        /* Ajusta a navegação para telas pequenas */
-        nav ul {
-            flex-direction: column;
-            align-items: center;
-        }
-
-        nav ul li {
-            margin-bottom: 10px;
-        }
-
-        /* Ajusta a tabela para telas pequenas */
-        table {
-            font-size: 14px;
-        }
-
-        /* Ajusta os formulários */
-        .contact-form input, .contact-form textarea, .contact-form button {
-            padding: 10px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendário de Eventos dos Terceiros 2K25</title>
+  <style>
+    /* Configuração geral */
+    body {
+      background: linear-gradient(135deg, #330000, #a00404);
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
     }
 
-    /* Responsividade para telas menores que 480px */
+    /* Cabeçalho */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      background: linear-gradient(90deg, #a00404, #7d0505);
+      border-bottom: 4px solid #000;
+    }
+
+    /* Logo */
+    .logo {
+      height: 100px;
+      width: 100px;
+      border-radius: 50%;
+    }
+
+    /* Menu de navegação */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Mensagem de boas-vindas */
+    .event-message {
+      background: linear-gradient(135deg, #8a0707, #7d0505);
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px solid #eebe00;
+      box-shadow: 0 0 10px rgba(241, 208, 77, 0.5);
+      max-width: 600px;
+      margin: 20px auto;
+      line-height: 1.5;
+    }
+
+    /* Estilização do calendário */
+    table {
+      width: 100%;
+      max-width: 100%;
+      margin: 20px auto;
+      border-collapse: collapse;
+      background: linear-gradient(135deg, #991B1B, #7A1313);
+      color: #fff;
+    }
+
+    th,
+    td {
+      border: 1px solid #F1D04D;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background: linear-gradient(135deg, #7A1313, #5c0f0f);
+    }
+
+    .event {
+      background: linear-gradient(135deg, #D87C4B, #b44f42);
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* Seção de Contato */
+    .contact-section {
+      text-align: center;
+      background: linear-gradient(135deg, #991B1B, #7A1313);
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      box-shadow: 0 0 10px rgba(241, 208, 77, 0.3);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-form label {
+      font-weight: bold;
+      text-align: left;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #F1D04D;
+      border-radius: 5px;
+      background-color: #7A1313;
+      color: white;
+    }
+
+    .contact-form button {
+      background: linear-gradient(135deg, #D87C4B, #b44f42);
+      color: #2C2C2C;
+      font-weight: bold;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: linear-gradient(135deg, #F1D04D, #991B1B);
+      color: #fff;
+    }
+
+    .frame {
+      width: 90%;
+      margin: 40px auto;
+      text-align: center;
+    }
+
+    button {
+      margin: 20px;
+    }
+
+    .custom-btn {
+      width: 130px;
+      height: 40px;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px 25px;
+      font-family: 'Lato', sans-serif;
+      font-weight: 500;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
+      box-shadow: inset 2px 2px 2px 0px #00fffc,
+                  7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+                  4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+      outline: none;
+      text-align: center;
+    }
+
+    .btn-12 {
+      position: relative;
+      right: 20px;
+      bottom: 20px;
+      border: none;
+      box-shadow: none;
+      width: 130px;
+      height: 40px;
+      line-height: 42px;
+      perspective: 230px;
+    }
+
+    .btn-12 span {
+      background: linear-gradient(45deg, #a00404, #7d0505);
+      display: block;
+      font-weight: 800;
+      position: absolute;
+      width: 130px;
+      height: 40px;
+      box-shadow: inset 2px 2px 2px 0px #ffffff,
+                  7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+                  4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      margin: 0;
+      text-align: center;
+      box-sizing: border-box;
+      transition: all 0.3s;
+    }
+
+    .btn-12 span:nth-child(1) {
+      transform: rotateX(90deg);
+      transform-origin: 50% 50% -20px;
+    }
+
+    .btn-12 span:nth-child(2) {
+      transform: rotateX(0deg);
+      transform-origin: 50% 50% -20px;
+    }
+
+    .btn-12:hover span:nth-child(1) {
+      background: linear-gradient(45deg, #a00404, #7d0505);
+      color: #fff;
+      font-weight: 800;
+      box-shadow: inset 2px 2px 2px 0px #c70000,
+                  7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+                  4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+      transform: rotateX(0deg);
+    }
+
+    .btn-12:hover span:nth-child(2) {
+      background: linear-gradient(45deg, #7d0505, #a00404);
+      color: transparent;
+      font-weight: 800;
+      box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+                  7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+                  4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+      transform: rotateX(-90deg);
+    }
+
+    @media screen and (max-width: 768px) {
+      /* Ajusta o cabeçalho */
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      /* Ajusta a logo para telas pequenas */
+      .logo {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+      }
+
+      /* Ajusta a navegação para telas pequenas */
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      nav ul li {
+        margin-bottom: 10px;
+      }
+
+      /* Ajusta a tabela para telas pequenas */
+      table {
+        font-size: 14px;
+      }
+
+      /* Ajusta os formulários */
+      .contact-form input,
+      .contact-form textarea,
+      .contact-form button {
+        padding: 10px;
+      }
+    }
+
     @media screen and (max-width: 480px) {
-        /* Aumenta o tamanho da fonte do título */
-        h2 {
-            font-size: 1.5em;
-        }
+      /* Aumenta o tamanho da fonte do título */
+      h2 {
+        font-size: 1.5em;
+      }
 
-        .contact-form {
-            padding: 15px;
-        }
+      .contact-form {
+        padding: 15px;
+      }
 
-        /* Ajusta o botão para telas muito pequenas */
-        .contact-form button {
-            padding: 10px;
-        }
+      /* Ajusta o botão para telas muito pequenas */
+      .contact-form button {
+        padding: 10px;
+      }
     }
-    </style>
+  </style>
 </head>
-
 <body>
-    <header>
-        <img src="../tas.jpg" alt="Logo dos Terceiros de Meio Ambiente 2K25"
-            class="logo">
-        <nav>
-            <ul>
-                <li>
-                    <div height="100px" widht="100px" id="claro-escuro"></div>
-                </li>
-                <li><a href="#eventos" class="custom-btn btn-12"><span>Eventos</span><span>Confira!</span></a></li>
-                <li><a href="#sobre" class="custom-btn btn-12"><span>Sobre Nós</span><span>Saiba Mais</span></a></li>
-                <li><a href="#contato" class="custom-btn btn-12"><span>Contato</span><span>Fale Conosco</span></a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <img src="../tas.jpg" alt="Logo dos Terceiros de Meio Ambiente 2K25" class="logo">
+    <nav>
+      <ul>
+        <li>
+          <div height="100px" width="100px" id="claro-escuro"></div>
+        </li>
+        <li><a href="#eventos" class="custom-btn btn-12"><span>Eventos</span><span>Confira!</span></a></li>
+        <li><a href="#sobre" class="custom-btn btn-12"><span>Sobre Nós</span><span>Saiba Mais</span></a></li>
+        <li><a href="#contato" class="custom-btn btn-12"><span>Contato</span><span>Fale Conosco</span></a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section id="sobre">
-            <h2>Sobre Nós</h2>
-            <p class="event-message">
-                Olá, calouros! Aqui quem fala são os Terceiro de Agropecuria. Sejam bem-vindos ao nosso calendário oficial de eventos! 🎉
-                Fiquem atentos, porque este será o nosso canal para divulgar todas as atividades, desafios e momentos épicos que preparamos para vocês ao longo do ano.
-            </p>
-        </section>
+  <main>
+    <section id="sobre">
+      <h2>Sobre Nós</h2>
+      <p class="event-message">
+        Olá, calouros! Aqui quem fala são os Terceiro de Agropecuria. Sejam bem-vindos ao nosso calendário oficial de eventos! 🎉
+        Fiquem atentos, porque este será o nosso canal para divulgar todas as atividades, desafios e momentos épicos que preparamos para vocês ao longo do ano.
+      </p>
+    </section>
 
-        <h2>Calendário de Eventos dos Terceiros 2K25</h2>
-        <table id="eventos">
-            <thead>
-                <tr>
-                    <th>Data</th>
-                    <th>Evento</th>
-                </tr>
-            </thead>
-            <tbody id="eventos-lista"></tbody>
-        </table>
+    <h2>Calendário de Eventos dos Terceiros 2K25</h2>
+    <table id="eventos">
+      <thead>
+        <tr>
+          <th>Data</th>
+          <th>Evento</th>
+        </tr>
+      </thead>
+      <tbody id="eventos-lista"></tbody>
+    </table>
 
-        <section class="contact-section">
-            <h2>Contato</h2>
-            <p>Entre em contato conosco:</p>
+    <section class="contact-section">
+      <h2>Contato</h2>
+      <p>Entre em contato conosco:</p>
+      <form class="contact-form">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" name="name" placeholder="Seu nome" required>
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+        <label for="message">Mensagem:</label>
+        <textarea id="message" name="message" rows="4" placeholder="Digite sua mensagem" required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
 
-            <form class="contact-form">
-                <label for="name">Nome:</label>
-                <input type="text" id="name" name="name" placeholder="Seu nome" required>
+  <script>
+    // Substituindo o PHP com JavaScript
+    const eventos = [
+      { data: '24/02/2025', evento: 'Trote da Fantasia' },
+      { data: '25/02/2025', evento: 'Dia do Pijama' },
+      { data: '26/02/2025', evento: 'Gincana dos Terceiros' },
+      { data: '27/02/2025', evento: 'Festa Junina' },
+      { data: '28/02/2025', evento: 'Calourada' }
+    ];
 
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" placeholder="Seu e-mail" required>
+    const eventosLista = document.getElementById('eventos-lista');
 
-                <label for="message">Mensagem:</label>
-                <textarea id="message" name="message" rows="4" placeholder="Digite sua mensagem" required></textarea>
-
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-    </main>
-
-    <script>
-        // Substituindo o PHP com JavaScript
-        const eventos = [
-            { data: '24/02/2025', evento: 'Trote da Fantasia' },
-            { data: '25/02/2025', evento: 'Dia do Pijama' },
-            { data: '26/02/2025', evento: 'Gincana dos Terceiros' },
-            { data: '27/02/2025', evento: 'Festa Junina' },
-            { data: '28/02/2025', evento: 'Calourada' }
-        ];
-
-        const eventosLista = document.getElementById('eventos-lista');
-
-        eventos.forEach(evento => {
-            const tr = document.createElement('tr');
-            tr.innerHTML = `<td>${evento.data}</td><td class="event">${evento.evento}</td>`;
-            eventosLista.appendChild(tr);
-        });
+    eventos.forEach(evento => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td>${evento.data}</td><td class="event">${evento.evento}</td>`;
+      eventosLista.appendChild(tr);
+    });
 
     // Código JavaScript para carregar o claro e escuro
     fetch('../Templates/claro_escuro.html')
@@ -368,12 +354,12 @@
         document.getElementById('claro-escuro').innerHTML = html;
       })
       .catch(error => console.error('Erro ao carregar o template:', error));
-      window.onpageshow = function(event) {
-            if (event.persisted) {
-                window.location.reload();
-            }
-        };
-    </script>
-</body>
 
+    window.onpageshow = function(event) {
+      if (event.persisted) {
+        window.location.reload();
+      }
+    };
+  </script>
+</body>
 </html>
