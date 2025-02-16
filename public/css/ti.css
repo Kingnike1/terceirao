@@ -558,7 +558,7 @@ th {
 /* Responsividade para o calendário */
 @media screen and (max-width: 768px) {
   #calendar {
-    margin: 20px;
+    margin: 3px;
     font-size: 14px;
   }
 
