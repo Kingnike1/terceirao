@@ -81,3 +81,41 @@ document.addEventListener("click", function(event) {
   }
 });
 
+
+function startCountdown(targetDate) {
+  function updateCountdown() {
+      let now = new Date().getTime();
+      let timeLeft = targetDate - now;
+
+      if (timeLeft < 0) {
+          document.querySelector(".countdown-container").innerHTML = "<h2>🎉 O grande dia chegou! 🎉</h2>";
+          clearInterval(interval);
+          return;
+      }
+
+      let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days < 10 ? "0" + days : days;
+      document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
+      document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
+      document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
+  }
+
+  let interval = setInterval(updateCountdown, 1000);
+  updateCountdown();
+}
+
+// Verifica se há uma data salva no LocalStorage
+let savedDate = localStorage.getItem("eventDate");
+
+if (!savedDate) {
+  let eventDate = new Date("2025-02-28T08:00:00").getTime(); // Defina a data do evento
+  localStorage.setItem("eventDate", eventDate); // Salva no LocalStorage
+} else {
+  eventDate = parseInt(savedDate);
+}
+
+startCountdown(eventDate);

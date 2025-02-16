@@ -25,22 +25,38 @@
       <header>
         <img src="../ti.jpg" alt="Logo dos Terceiros de Informática 2K25" class="logo" />
 
-        <!-- Botão do menu hambúrguer -->
-        <div class="menu-toggle" onclick="toggleMenu()">
-            ☰
+        <!-- Contador Regressivo -->
+        <div class="countdown-container">
+          <div class="time-box">
+            <span class="number" id="days">00</span>
+            <span class="label">Dias</span>
+          </div>
+          <div class="time-box">
+            <span class="number" id="hours">00</span>
+            <span class="label">Horas</span>
+          </div>
+          <div class="time-box">
+            <span class="number" id="minutes">00</span>
+            <span class="label">Minutos</span>
+          </div>
+          <div class="time-box">
+            <span class="number" id="seconds">00</span>
+            <span class="label">Segundos</span>
+          </div>
         </div>
 
+        <!-- Botão do menu hambúrguer -->
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
         <nav class="nav-menu">
-            <ul id="myLinks">
-                <li><div id="claroEscuro"></div></li>
-                <li><a href="#eventos" class="custom-btn btn-3">Eventos</a></li>
-                <li><a href="#sobre" class="custom-btn btn-3">Sobre Nós</a></li>
-                <li><a href="#contato" class="custom-btn btn-3">Contato</a></li>
-            </ul>
+          <ul id="myLinks">
+            <li><div id="claroEscuro"></div></li>
+            <li><a href="#eventos" class="custom-btn btn-3">Eventos</a></li>
+            <li><a href="#sobre" class="custom-btn btn-3">Sobre Nós</a></li>
+            <li><a href="#contato" class="custom-btn btn-3">Contato</a></li>
+          </ul>
         </nav>
-    </header>
-
-
+      </header>
 
       <div class="progress-container">
         <div class="progress-bar" id="myBar"></div>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Regressivo</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #282c36;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 100px;
+            font-size: 24px;
+        }
+
+        .time-box {
+            background: linear-gradient(45deg, #ff7eb3, #ff758c);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .time-box:hover {
+            transform: scale(1.1);
+        }
+
+        .number {
+            font-size: 40px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: #ffebee;
+        }
+
+        @media (max-width: 600px) {
+            .countdown-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🎉 Faltam para o evento:</h1>
+
+    <div class="countdown-container">
+        <div class="time-box">
+            <span class="number" id="days">00</span>
+            <span class="label">Dias</span>
+        </div>
+        <div class="time-box">
+            <span class="number" id="hours">00</span>
+            <span class="label">Horas</span>
+        </div>
+        <div class="time-box">
+            <span class="number" id="minutes">00</span>
+            <span class="label">Minutos</span>
+        </div>
+        <div class="time-box">
+            <span class="number" id="seconds">00</span>
+            <span class="label">Segundos</span>
+        </div>
+    </div>
+
+    <script>
+        function startCountdown(targetDate) {
+            function updateCountdown() {
+                let now = new Date().getTime();
+                let timeLeft = targetDate - now;
+
+                if (timeLeft < 0) {
+                    document.querySelector(".countdown-container").innerHTML = "<h2>🎉 O grande dia chegou! 🎉</h2>";
+                    clearInterval(interval);
+                    return;
+                }
+
+                let days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById("days").textContent = days < 10 ? "0" + days : days;
+                document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
+                document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
+                document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
+            }
+
+            let interval = setInterval(updateCountdown, 1000);
+            updateCountdown();
+        }
+
+        // Verifica se há uma data salva no LocalStorage
+        let savedDate = localStorage.getItem("eventDate");
+
+        if (!savedDate) {
+            let eventDate = new Date("2025-02-28T23:59:59").getTime(); // Defina a data do evento
+            localStorage.setItem("eventDate", eventDate); // Salva no LocalStorage
+        } else {
+            eventDate = parseInt(savedDate);
+        }
+
+        startCountdown(eventDate);
+    </script>
+
+</body>
+</html>

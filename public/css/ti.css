@@ -170,6 +170,46 @@ nav ul li a {
   .social-button:hover .social-logo {
     transform: rotate(360deg);
   }
+
+  .countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    font-size: 24px;
+}
+
+.time-box {
+    background: #ff5733;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+}
+
+.time-box:hover {
+    transform: scale(1.1);
+}
+
+.number {
+    font-size: 40px;
+    font-weight: bold;
+    display: block;
+    color: white;
+}
+
+.label {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ffebee;
+}
+
+@media (max-width: 600px) {
+    .countdown-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
   #typeWriter {
 
         background-color: #ff5733; /* Cor laranja combinando com o tema */
