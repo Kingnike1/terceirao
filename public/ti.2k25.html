@@ -23,22 +23,24 @@
     <!-- Header -->
     <div class="header">
       <header>
-        <img
-          src="../ti.jpg"
-          alt="Logo dos Terceiros de Informática 2K25"
-          class="logo"
-        />
-        <nav>
-          <ul>
-            <li>
-              <div id="claroEscuro"></div>
-            </li>
-            <li><a href="#eventos" class="custom-btn btn-3">Eventos</a></li>
-            <li><a href="#sobre" class="custom-btn btn-3">Sobre Nós</a></li>
-            <li><a href="#contato" class="custom-btn btn-3">Contato</a></li>
-          </ul>
+        <img src="../ti.jpg" alt="Logo dos Terceiros de Informática 2K25" class="logo" />
+
+        <!-- Botão do menu hambúrguer -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            ☰
+        </div>
+
+        <nav class="nav-menu">
+            <ul>
+                <li><div id="claroEscuro"></div></li>
+                <li><a href="#eventos" class="custom-btn btn-3">Eventos</a></li>
+                <li><a href="#sobre" class="custom-btn btn-3">Sobre Nós</a></li>
+                <li><a href="#contato" class="custom-btn btn-3">Contato</a></li>
+            </ul>
         </nav>
-      </header>
+    </header>
+
+
       <div class="progress-container">
         <div class="progress-bar" id="myBar"></div>
       </div>
