@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escolha seu Ano e Curso</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Grechen+Fuemen&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@400..700&family=Grechen+Fuemen&display=swap" rel="stylesheet">
-    <style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Escolha seu Ano e Curso</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap"
+            rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Grechen+Fuemen&display=swap"
+            rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Dancing+Script:wght@400..700&family=Grechen+Fuemen&display=swap"
+            rel="stylesheet">
+        <style>
 
         /* Estilos padrão (Agropecuária) */
         body {
@@ -121,7 +127,7 @@
             background-color: #002244;
             border-bottom: 3px solid #ffe300;
         }
-        
+
         .meio-ambiente-theme h1 {
             font-family: 'Dancing Script', cursive;
             font-size: 2.5rem;
@@ -173,116 +179,124 @@
     </style>
 <script>
     function alterarTema() {
-        let curso = document.getElementById("curso").value;
-        let body = document.body;
+    let curso = document.getElementById("curso").value; // Obtém o curso selecionado
+    let body = document.body; // Obtém o elemento <body>
 
-        // Resetando temas
-        body.classList.remove("info-theme", "meio-ambiente-theme");
+    // Resetando os temas
+    body.classList.remove("info-theme", "meio-ambiente-theme");
 
-        // Aplicando o tema conforme o curso selecionado
+    // Aplicando o tema conforme o curso selecionado
+    if (curso === "info") {
+        body.classList.add("info-theme"); // Adiciona o tema de Informática
+    } else if (curso === "meio_ambiente") {
+        body.classList.add("meio-ambiente-theme"); // Adiciona o tema de Meio Ambiente
+    }
+
+    // Chama a função que organiza os logos
+    organizarLogos(curso);
+}
+
+function organizarLogos(curso) {
+    let header = document.querySelector("header"); // Obtém o elemento <header>
+    let logos = {
+        "info": document.querySelector("img[alt='Logo Informática']"), // Logo de Informática
+        "agropecuaria": document.querySelector("img[alt='Logo Agropecuária']"), // Logo de Agropecuária
+        "meio_ambiente": document.querySelector("img[alt='Logo Meio Ambiente']") // Logo de Meio Ambiente
+    };
+
+    // Se nenhum curso for selecionado, exibe todos os logos
+    if (!curso) {
+        for (let key in logos) {
+            logos[key].style.display = "inline"; // Exibe todos os logos
+        }
+    } else {
+        // Caso contrário, esconde todos os logos e exibe apenas o do curso selecionado
+        for (let key in logos) {
+            logos[key].style.display = "none"; // Esconde todos os logos
+        }
+
+        // Exibe o logo do curso selecionado
+        if (logos[curso]) {
+            logos[curso].style.display = "inline"; // Exibe o logo do curso
+        }
+    }
+}
+
+
+// Função que redireciona para a página do curso selecionado
+function redirecionar() {
+    let curso = document.getElementById("curso").value; // Obtém o curso selecionado
+    let botao = document.querySelector("button"); // Obtém o botão "Confirmar"
+
+    // Verifica se o curso foi selecionado
+    if (!curso) {
+        alert("Selecione um curso válido."); // Alerta caso não tenha selecionado um curso
+        return;
+    }
+
+    // Exibe o texto "Carregando" no botão e o desativa enquanto redireciona
+    botao.innerHTML = ' <div class="loading"> Carregando <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>';
+    botao.disabled = true;
+
+    // Redireciona após 2 segundos para a página do curso
+    setTimeout(() => {
         if (curso === "info") {
-            body.classList.add("info-theme");
+            window.location.href = "./public/ti.2k25.html"; // Redireciona para Informática
         } else if (curso === "meio_ambiente") {
-            body.classList.add("meio-ambiente-theme");
+            window.location.href = "./public/tmas.2k25.html"; // Redireciona para Meio Ambiente
+        } else if (curso === "agropecuaria") {
+            window.location.href = "./public/ta.s2k25.html"; // Redireciona para Agropecuária
         }
+    }, 2000);
+}
 
-        organizarLogos(curso);
+// Função que recarrega a página se a navegação for feita do cache
+window.onpageshow = function(event) {
+    if (event.persisted) {
+        window.location.reload(); // Recarrega a página se ela foi carregada do cache
     }
+};
 
-    function organizarLogos(curso) {
-        let header = document.querySelector("header");
-        let logos = {
-            "info": document.querySelector("img[alt='Logo Informática']"),
-            "agropecuaria": document.querySelector("img[alt='Logo Agropecuária']"),
-            "meio_ambiente": document.querySelector("img[alt='Logo Meio Ambiente']")
-        };
-
-        // Criando um array com a ordem dinâmica
-        let novaOrdem = [];
-
-        if (curso && logos[curso]) {
-            novaOrdem.push(logos[curso]); // Curso selecionado na frente
-            for (let key in logos) {
-                if (key !== curso) {
-                    novaOrdem.push(logos[key]); // Outros cursos depois
-                }
-            }
-        } else {
-            // Caso nenhum curso tenha sido selecionado, mantém a ordem padrão
-            novaOrdem = Object.values(logos);
-        }
-
-        // Atualizando a ordem no HTML
-        header.innerHTML = ""; // Limpa o header
-        novaOrdem.forEach(img => header.appendChild(img)); // Adiciona na nova ordem
-    }
-
-    function redirecionar() {
-        let curso = document.getElementById("curso").value;
-        let botao = document.querySelector("button");
-
-        if (!curso) {
-            alert("Selecione um curso válido.");
-            return;
-        }
-
-        botao.innerHTML = ' <div class="loading"> Carregando <span class="dot"></span><span class="dot"></span><span class="dot"></span></div>';
-        botao.disabled = true;
-
-        setTimeout(() => {
-            if (curso === "info") {
-                window.location.href = "./public/ti.2k25.html";
-            } else if (curso === "meio_ambiente") {
-                window.location.href = "./public/tmas.2k25.html";
-            } else if (curso === "agropecuaria") {
-                window.location.href = "./public/ta.s2k25.html";
-            }
-        }, 2000);
-    }
-    window.onpageshow = function(event) {
-            if (event.persisted) {
-                window.location.reload();
-            }
-        };
 </script>
 
-</head>
-<body>
+    </head>
+    <body>
 
-    <!-- Cabeçalho com logos -->
-    <header>
-        <img src="ti.jpg" alt="Logo Informática">
-        <img src="tas.jpg" alt="Logo Agropecuária">
-        <img src="tmas.jpg" alt="Logo Meio Ambiente"><br>
-    </header>
-    <H1>TERCEIROS 2K25</H1>
+        <!-- Cabeçalho com logos -->
+        <header>
+            <img src="ti.jpg" alt="Logo Informática">
+            <img src="tas.jpg" alt="Logo Agropecuária">
+            <img src="tmas.jpg" alt="Logo Meio Ambiente"><br>
+        </header>
+        <h1>TERCEIROS 2K25</h1>
 
-    <!-- Área de seleção -->
-    <div class="container">
-        <h2>Escolha seu Ano e Curso</h2>
+        <!-- Área de seleção -->
+        <div class="container">
+            <h2>Escolha seu Ano e Curso</h2>
 
-        <label for="ano">Selecione seu ano:</label>
-        <select id="ano">
-            <option value="1">1° Ano</option>
-            <option value="2">2° Ano</option>
-            <option value="3">3° Ano</option>
-        </select>
+            <label for="ano">Selecione seu ano:</label>
+            <select id="ano">
+                <option value="1">1° Ano</option>
+                <option value="2">2° Ano</option>
+                <option value="3">3° Ano</option>
+            </select>
 
-        <br>
+            <br>
 
-        <label for="curso">Selecione seu curso:</label>
-        <select id="curso" onchange="alterarTema()">
-            <option value="" selected>-- Selecione --</option>
-            <option value="info">Informática</option>
-            <option value="meio_ambiente">Meio Ambiente</option>
-            <option value="agropecuaria">Agropecuária</option>
-        </select>
+            <label for="curso">Selecione seu curso:</label>
+            <select id="curso" onchange="alterarTema()">
+                <option value selected>-- Selecione --</option>
+                <option value="info">Informática</option>
+                <option value="meio_ambiente">Meio Ambiente</option>
+                <option value="agropecuaria">Agropecuária</option>
+            </select>
 
-        <br>
+            <br>
 
-        <button onclick="redirecionar()" style="text-align: center;">Confirmar</button>
+            <button onclick="redirecionar()"
+                style="text-align: center;">Confirmar</button>
 
-    </div>
+        </div>
 
-</body>
+    </body>
 </html>
