@@ -1,6 +1,6 @@
 var i = 0
 var txt =
-  'Olá, calouros! Aqui quem fala são os terceiros de Informática. Sejam bem-vindos ao nosso calendário oficial de eventos! 🎉 Fiquem atentos, porque este será o nosso canal para divulgar todas as atividades, desafios e momentos épicos que preparamos para vocês ao longo do ano. Desde trotes inesquecíveis até eventos temáticos, tudo estará registrado aqui com datas e detalhes. Preparem-se para muita diversão, integração e, claro, surpresas! Não deixem de acompanhar para não perder nada. 🚀🔥' /* The text */
+  'Olá, calouros! Aqui quem fala são os terceiros de Maio Ambientes. Sejam bem-vindos ao nosso calendário oficial de eventos! 🎉 Fiquem atentos, porque este será o nosso canal para divulgar todas as atividades, desafios e momentos épicos que preparamos para vocês ao longo do ano. Desde trotes inesquecíveis até eventos temáticos, tudo estará registrado aqui com datas e detalhes. Preparem-se para muita diversão, integração e, claro, surpresas! Não deixem de acompanhar para não perder nada. 🚀🔥' /* The text */
 var speed = 50 /* The speed/duration of the effect in milliseconds */
 
 function typeWriter() {
