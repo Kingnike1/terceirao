@@ -7,126 +7,146 @@
   <title>Calendário de Eventos dos Terceiros 2K25</title>
   <link rel="stylesheet" href="../Templates/link.html">
   <link rel="stylesheet" href="./css/tmas.css">
+    <!-- FullCalendar CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css" rel="stylesheet">
 
+    <!-- jQuery (necessário para o FullCalendar) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  
+    <!-- FullCalendar JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
 </head>
 
 <body>
-  <header>
-    <img
-      src="../tmas.jpg"
-      alt="Logo dos Terceiros de Meio Ambiente 2K25"
-      class="logo" />
-    <nav>
-      <ul>
-        <li>
-          <div id="claro-escuro">
-          </div>
-        </li>
-        <li><a href="#eventos" class="custom-btn btn-3">Eventos</a></li>
-        <li><a href="#sobre" class="custom-btn btn-3">Sobre Nós</a></li>
-        <li><a href="#contato" class="custom-btn btn-3">Contato</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Header -->
+  <div class="header">
+    <header>
+      <img src="../tmas.jpg" alt="Logo dos Terceiros de Meio Ambiente 2K25" class="logo" />
 
+      <!-- Contador Regressivo -->
+      <div class="countdown-container">
+        <div class="time-box">
+          <span class="number" id="days">00</span>
+          <span class="label">Dias</span>
+        </div>
+        <div class="time-box">
+          <span class="number" id="hours">00</span>
+          <span class="label">Horas</span>
+        </div>
+        <div class="time-box">
+          <span class="number" id="minutes">00</span>
+          <span class="label">Minutos</span>
+        </div>
+        <div class="time-box">
+          <span class="number" id="seconds">00</span>
+          <span class="label">Segundos</span>
+        </div>
+      </div>
+
+      <!-- Botão do menu hambúrguer -->
+      <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+      <nav class="nav-menu">
+        <ul id="myLinks">
+          <li><div id="claroEscuro"></div></li>
+          <li><a href="#eventos" class="custom-btn btn-3">Eventos</a></li>
+          <li><a href="#sobre" class="custom-btn btn-3">Sobre Nós</a></li>
+          <li><a href="#contato" class="custom-btn btn-3">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="myBar"></div>
+    </div>
+  </div>
+
+  <!-- Main Content -->
   <main>
+    <!-- Button to Scroll to Top -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">🔝</button>
+
+    <!-- About Section -->
     <section id="sobre">
       <h2>Sobre Nós</h2>
-      <p class="event-message">
-        Olá, calouros! Aqui quem fala são os Terceiros de Meio Ambiente. Sejam
-        bem-vindos ao nosso calendário oficial de eventos! 🎉
-        <br /><br />
-        Fiquem atentos, porque este será o nosso canal para divulgar todas as
-        atividades, desafios e momentos épicos que preparamos para vocês ao
-        longo do ano. Desde trotes inesquecíveis até eventos temáticos, tudo
-        estará registrado aqui com datas e detalhes.
-        <br /><br />
-        Preparem-se para muita diversão, integração e, claro, surpresas! Não
-        deixem de acompanhar para não perder nada. 🚀🔥
-      </p>
+      <button onclick="typeWriter()" id="typeWriter">Click me</button>
+      <p class="event-message" id="demo"></p>
     </section>
-    <h2>Calendário de Eventos dos Terceiros 2K25</h2>
-    <!-- Calendário -->
-    <table id="eventos">
-      <thead>
-        <tr>
-          <th>Data</th>
-          <th>Evento</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>24/02/2025</td>
-          <td class="event">Trote da Fantasia</td>
-        </tr>
-        <tr>
-          <td>25/02/2025</td>
-          <td class="event">Dia do Pijama</td>
-        </tr>
-        <tr>
-          <td>26/02/2025</td>
-          <td class="event">Gincana dos Terceiros</td>
-        </tr>
-        <tr>
-          <td>27/02/2025</td>
-          <td class="event">Festa Junina</td>
-        </tr>
-        <tr>
-          <td>28/02/2025</td>
-          <td class="event">Calourada</td>
-        </tr>
-      </tbody>
-    </table>
 
-    <section class="contact-section">
-      <h2>Contato</h2>
-      <p>Entre em contato conosco:</p>
+    <!-- Events Section -->
+    <h2 id="eventos">Calendário de Eventos dos Terceiros 2K25</h2>
+<!-- Calendário -->
+<div id="calendar"></div>
 
-      <form class="contact-form">
-        <label for="name">Nome:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Seu nome"
-          required />
+<!-- Seção de Contato -->
+<section class="contact-section">
+<h2 id="contato">Contato</h2>
+<p>Entre em contato conosco pelas redes sociais:</p>
 
-        <label for="email">E-mail:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Seu e-mail"
-          required />
+<div class="social-buttons">
+  <!-- Botão Instagram -->
+  <a href="https://www.instagram.com/ti.2k25" target="_blank" class="social-button instagram">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-logo">
+    <span>Instagram</span>
+  </a>
 
-        <label for="message">Mensagem:</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="4"
-          placeholder="Digite sua mensagem"
-          required></textarea>
-
-        <button type="submit">Enviar</button>
-      </form>
-    </section>
+  <!-- Botão TikTok -->
+  <a href="https://www.tiktok.com/@ti.2k25" target="_blank" class="social-button tiktok">
+    <img src="../tik-tok.png" alt="TikTok" class="social-logo">
+    <span>TikTok</span>
+  </a>
+</div>
+</section>
   </main>
 
-  <script src="./js/tmas.js"></script>
-  <script>
-    // Código JavaScript para carregar o claro e escuro
-    fetch('../Templates/claro_escuro.html')
-      .then(response => response.text())
-      .then(html => {
-        document.getElementById('claro-escuro').innerHTML = html;
-      })
-      .catch(error => console.error('Erro ao carregar o template:', error));
-      window.onpageshow = function(event) {
-            if (event.persisted) {
-                window.location.reload();
-            }
-        };
+  <!-- Scripts -->
+   <script src="./js/tmas.js"></script>
+   <script>
+    $(document).ready(function() {
+      $('#calendar').fullCalendar({
+        events: [
+          {
+            title: 'Trote da Fantasia',
+            start: '2025-02-24',
+            description: 'Evento de recepção dos calouros com fantasia.',
+            color: '#1abc9c'
+          },
+          {
+            title: 'Dia do Pijama',
+            start: '2025-02-25',
+            description: 'Dia temático com todos usando pijamas.',
+            color: '#f39c12'
+          },
+          {
+            title: 'Gincana dos Terceiros',
+            start: '2025-02-26',
+            description: 'Gincana organizada pelos terceiros de Informática.',
+            color: '#3498db'
+          },
+          {
+            title: 'Festa Junina',
+            start: '2025-02-27',
+            description: 'Festa junina tradicional.',
+            color: '#e74c3c'
+          },
+          {
+            title: 'Calourada',
+            start: '2025-02-28',
+            description: 'Grande festa para os calouros.',
+            color: '#9b59b6'
+          }
+        ],
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'month,agendaWeek,agendaDay'
+        },
+      });
+    });
   </script>
 </body>
-
 </html>
+

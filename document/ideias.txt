@@ -5,3 +5,8 @@ Calendário (possivelmente para agendamentos)
 Mudar "Contato" para Instagram e TikTok
 Botão para voltar ao topo da página
 Contador regressivo (para algum evento)
+
+#07368ecd;
+#003366;
+#007acc;
+#00478e;
