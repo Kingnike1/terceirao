@@ -1,0 +1,7 @@
+Barra de progresso (provavelmente para acompanhar o carregamento ou progresso de algo)
+CSS do menu (melhoria no design do menu)
+Botão com efeito "typeWriter" (efeito de máquina de escrever)
+Calendário (possivelmente para agendamentos)
+Mudar "Contato" para Instagram e TikTok
+Botão para voltar ao topo da página
+Contador regressivo (para algum evento)
