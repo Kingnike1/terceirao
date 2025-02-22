@@ -85,7 +85,14 @@
       <!-- Events Section -->
       <h2 id="eventos">Calendário de Eventos dos Terceiros 2K25</h2>
       <!-- Botão para alternar entre Modo Lista e Modo Calendário -->
-      <button id="toggleView">Modo Lista</button>
+      <!-- Botão para alternar para o modo lista (somente em smartphones) -->
+      <button
+        id="toggleListView"
+        style="display: none"
+        onclick="toggleCalendarView()"
+      >
+        📋 Modo Lista
+      </button>
 
       <!-- Calendário -->
       <div id="calendar"></div>
@@ -206,6 +213,32 @@
           $('#calendar').fullCalendar('changeView', newView)
           $(this).text(newView === 'month' ? 'Modo Lista' : 'Modo Calendário')
         })
+      })
+      $(document).ready(function () {
+        // Detecta se o usuário está em um smartphone
+        function isMobileDevice() {
+          return /Mobi|Android|iPhone/i.test(navigator.userAgent)
+        }
+
+        // Se for um smartphone, mostra o botão
+        if (isMobileDevice()) {
+          document.getElementById('toggleListView').style.display = 'block'
+        }
+
+        // Função para alternar entre calendário normal e lista
+        window.toggleCalendarView = function () {
+          var calendar = $('#calendar')
+
+          if (calendar.hasClass('list-view')) {
+            // Voltar ao modo calendário
+            calendar.fullCalendar('changeView', 'month')
+            calendar.removeClass('list-view')
+          } else {
+            // Mudar para modo lista (agenda)
+            calendar.fullCalendar('changeView', 'agendaListWeek')
+            calendar.addClass('list-view')
+          }
+        }
       })
     </script>
   </body>
