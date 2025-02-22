@@ -662,15 +662,19 @@ th {
     padding: 10px;
   }
 }
+
 /* Ajusta o tamanho do texto dos eventos para melhorar a leitura em celulares */
 @media (max-width: 768px) {
   .fc-event {
-    font-size: 12px !important; /* Reduz o tamanho da fonte */
-    padding: 2px !important; /* Diminui o espaçamento */
+    font-size: 12px !important;
+    /* Reduz o tamanho da fonte */
+    padding: 2px !important;
+    /* Diminui o espaçamento */
   }
 
   .fc-toolbar h2 {
-    font-size: 16px !important; /* Reduz o tamanho do título */
+    font-size: 16px !important;
+    /* Reduz o tamanho do título */
   }
 }
 
@@ -682,7 +686,8 @@ th {
 
 @media (max-width: 768px) {
   #calendar {
-    height: 400px; /* Reduz a altura no celular */
+    height: 400px;
+    /* Reduz a altura no celular */
   }
 }
 
@@ -703,4 +708,22 @@ th {
 
 #toggleListView:hover {
   background-color: #2980b9;
+}
+
+/* Estilo para o tooltip com informações do evento */
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  max-width: 200px;
+  z-index: 10000000 !important;
+}
+
+/* Estilo quando o mouse estiver sobre a imagem */
+.event-image:hover+.tooltip {
+  display: block;
 }

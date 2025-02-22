@@ -37,6 +37,45 @@ function topFunction() {
   document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
 }
 
+function eventRender(event, element) {
+  if (event.imageUrl) {
+    // Cria a imagem
+    element.html(
+      '<img class="event-image" src="' +
+        event.imageUrl +
+        '" alt="' +
+        event.title +
+        '" style="width:100%; border-radius: 5px;">'
+    )
+
+    // Cria o tooltip com as informações do evento
+    var tooltip = $('<div class="tooltip"></div>')
+      .html(
+        '<strong>' + event.title + '</strong><br>' +
+        'Data: ' + event.start.format('DD/MM/YYYY') + '<br>' +
+        'Descrição: ' + event.description + '<br>' +
+        'Local: ' + event.location + '<br>' +
+        '<a href="' + event.moreInfoLink + '" target="_blank">Saiba mais</a>'
+      )
+      .appendTo('body')
+
+    // Faz o tooltip aparecer ao passar o mouse
+    element.on('mouseenter', function () {
+      tooltip.show()
+    }).on('mouseleave', function () {
+      tooltip.hide()
+    })
+
+    // Posiciona o tooltip perto da imagem
+    element.on('mousemove', function (e) {
+      tooltip.css({
+        top: e.pageY + 10,
+        left: e.pageX + 10
+      })
+    })
+  }
+}
+
 // Progress bar update function
 function updateProgressBar() {
   var winScroll =
@@ -119,3 +158,4 @@ if (!savedDate) {
 }
 
 startCountdown(eventDate);
+
