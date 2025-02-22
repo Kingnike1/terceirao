@@ -662,3 +662,41 @@ th {
     padding: 10px;
   }
 }
+/* Ajusta o tamanho do texto dos eventos para melhorar a leitura em celulares */
+@media (max-width: 768px) {
+  .fc-event {
+    font-size: 12px !important; /* Reduz o tamanho da fonte */
+    padding: 2px !important; /* Diminui o espaçamento */
+  }
+
+  .fc-toolbar h2 {
+    font-size: 16px !important; /* Reduz o tamanho do título */
+  }
+}
+
+/* Ajusta o tamanho do calendário para se encaixar melhor em telas pequenas */
+#calendar {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  #calendar {
+    height: 400px; /* Reduz a altura no celular */
+  }
+}
+
+/* Estilo do botão para alternar entre modo Lista e Mês */
+#toggleView {
+  margin: 10px 0;
+  padding: 8px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#toggleView:hover {
+  background-color: #2980b9;
+}

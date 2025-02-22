@@ -6,24 +6,31 @@
     <title>Calendário de Eventos dos Terceiros 2K25</title>
     <link rel="stylesheet" href="../Templates/link.html" />
     <link rel="stylesheet" href="./css/ti.css" />
-  <!-- FullCalendar CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css" rel="stylesheet">
+    <!-- FullCalendar CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- jQuery (necessário para o FullCalendar) -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery (necessário para o FullCalendar) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- Moment.js -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-  <!-- FullCalendar JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
+    <!-- FullCalendar JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
   </head>
 
   <body>
     <!-- Header -->
     <div class="header">
       <header>
-        <img src="../ti.jpg" alt="Logo dos Terceiros de Informática 2K25" class="logo" />
+        <img
+          src="../ti.jpg"
+          alt="Logo dos Terceiros de Informática 2K25"
+          class="logo"
+        />
 
         <!-- Contador Regressivo -->
         <div class="countdown-container">
@@ -77,85 +84,129 @@
 
       <!-- Events Section -->
       <h2 id="eventos">Calendário de Eventos dos Terceiros 2K25</h2>
-  <!-- Calendário -->
-  <div id="calendar"></div>
+      <!-- Botão para alternar entre Modo Lista e Modo Calendário -->
+      <button id="toggleView">Modo Lista</button>
 
-<!-- Seção de Contato -->
-<section class="contact-section">
-  <h2 id="contato">Contato</h2>
-  <p>Entre em contato conosco pelas redes sociais:</p>
+      <!-- Calendário -->
+      <div id="calendar"></div>
 
-  <div class="social-buttons">
-    <!-- Botão Instagram -->
-    <a href="https://www.instagram.com/ti.2k25" target="_blank" class="social-button instagram">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="social-logo">
-      <span>Instagram</span>
-    </a>
+      <!-- Seção de Contato -->
+      <section class="contact-section">
+        <h2 id="contato">Contato</h2>
+        <p>Entre em contato conosco pelas redes sociais:</p>
 
-    <!-- Botão TikTok -->
-    <a href="https://www.tiktok.com/@ti.2k25" target="_blank" class="social-button tiktok">
-      <img src="../tik-tok.png" alt="TikTok" class="social-logo">
-      <span>TikTok</span>
-    </a>
-  </div>
-</section>
+        <div class="social-buttons">
+          <!-- Botão Instagram -->
+          <a
+            href="https://www.instagram.com/ti.2k25"
+            target="_blank"
+            class="social-button instagram"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+              alt="Instagram"
+              class="social-logo"
+            />
+            <span>Instagram</span>
+          </a>
+
+          <!-- Botão TikTok -->
+          <a
+            href="https://www.tiktok.com/@ti.2k25"
+            target="_blank"
+            class="social-button tiktok"
+          >
+            <img src="../tik-tok.png" alt="TikTok" class="social-logo" />
+            <span>TikTok</span>
+          </a>
+        </div>
+      </section>
     </main>
 
     <!-- Scripts -->
-     <script src="./js/ti.js"></script>
-     <script>
-      $(document).ready(function() {
+    <script src="./js/ti.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Função para definir a melhor visão do calendário (Mês ou Lista)
+        function getCalendarView() {
+          return window.innerWidth < 768 ? 'listWeek' : 'month'
+        }
+
+        // Inicializa o FullCalendar
         $('#calendar').fullCalendar({
+          defaultView: getCalendarView(),
           events: [
             {
               title: 'Trote da Fantasia',
               start: '2025-02-24',
               description: 'Evento de recepção dos calouros com fantasia.',
               imageUrl: './img/segunda.jpg',
-              color: '#1abc9c'
+              color: '#1abc9c',
             },
             {
               title: 'Dia do Pijama',
               start: '2025-02-25',
               description: 'Dia temático com todos usando pijamas.',
               imageUrl: './img/terca.jpg',
-              color: '#f39c12'
+              color: '#f39c12',
             },
             {
               title: 'Gincana dos Terceiros',
               start: '2025-02-26',
               description: 'Gincana organizada pelos terceiros de Informática.',
               imageUrl: './img/quarta.jpg',
-              color: '#3498db'
+              color: '#3498db',
             },
             {
               title: 'Festa Junina',
               start: '2025-02-27',
               description: 'Festa junina tradicional.',
               imageUrl: './img/quinta.jpg',
-              color: '#e74c3c'
+              color: '#e74c3c',
             },
             {
               title: 'Calourada',
               start: '2025-02-28',
               description: 'Grande festa para os calouros.',
               imageUrl: './img/sexta.jpg',
-              color: '#9b59b6'
-            }
+              color: '#9b59b6',
+            },
           ],
           header: {
             left: 'prev,next today',
             center: 'title',
-            right: 'month,agendaWeek,agendaDay'
+            right:
+              window.innerWidth < 768
+                ? 'listWeek'
+                : 'month,agendaWeek,agendaDay',
           },
-          eventRender: function(event, element) {
+          eventRender: function (event, element) {
             if (event.imageUrl) {
-              element.html('<img src="' + event.imageUrl + '" alt="' + event.title + '" style="width:100%; border-radius: 5px;">');
+              element.html(
+                '<img src="' +
+                  event.imageUrl +
+                  '" alt="' +
+                  event.title +
+                  '" style="width:100%; border-radius: 5px;">'
+              )
             }
-          }
-        });
-      });
-    </script>
+          },
+        })
 
+        // Atualiza a visualização ao redimensionar a tela
+        $(window).resize(function () {
+          $('#calendar').fullCalendar('changeView', getCalendarView())
+        })
+
+        // Alterna entre os modos Mês e Lista manualmente
+        $('#toggleView').on('click', function () {
+          var currentView = $('#calendar').fullCalendar('getView').name
+          var newView = currentView === 'month' ? 'listWeek' : 'month'
+
+          $('#calendar').fullCalendar('changeView', newView)
+          $(this).text(newView === 'month' ? 'Modo Lista' : 'Modo Calendário')
+        })
+      })
+    </script>
   </body>
 </html>
