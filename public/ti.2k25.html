@@ -71,7 +71,7 @@
       <!-- About Section -->
       <section id="sobre">
         <h2>Sobre Nós</h2>
-        <button onclick="typeWriter()" id="typeWriter">Click me</button>
+        <button onclick="typeWriter()" id="typeWriter">Clique aqui</button>
         <p class="event-message" id="demo"></p>
       </section>
 
@@ -111,30 +111,35 @@
               title: 'Trote da Fantasia',
               start: '2025-02-24',
               description: 'Evento de recepção dos calouros com fantasia.',
+              imageUrl: './img/segunda.jpg',
               color: '#1abc9c'
             },
             {
               title: 'Dia do Pijama',
               start: '2025-02-25',
               description: 'Dia temático com todos usando pijamas.',
+              imageUrl: './img/terca.jpg',
               color: '#f39c12'
             },
             {
               title: 'Gincana dos Terceiros',
               start: '2025-02-26',
               description: 'Gincana organizada pelos terceiros de Informática.',
+              imageUrl: './img/quarta.jpg',
               color: '#3498db'
             },
             {
               title: 'Festa Junina',
               start: '2025-02-27',
               description: 'Festa junina tradicional.',
+              imageUrl: './img/quinta.jpg',
               color: '#e74c3c'
             },
             {
               title: 'Calourada',
               start: '2025-02-28',
               description: 'Grande festa para os calouros.',
+              imageUrl: './img/sexta.jpg',
               color: '#9b59b6'
             }
           ],
@@ -143,8 +148,14 @@
             center: 'title',
             right: 'month,agendaWeek,agendaDay'
           },
+          eventRender: function(event, element) {
+            if (event.imageUrl) {
+              element.html('<img src="' + event.imageUrl + '" alt="' + event.title + '" style="width:100%; border-radius: 5px;">');
+            }
+          }
         });
       });
     </script>
+
   </body>
 </html>
