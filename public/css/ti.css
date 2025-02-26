@@ -46,8 +46,6 @@ nav ul li a {
   font-weight: bold;
 }
 
-
-
 main {
   padding: 20px;
   text-align: center;
@@ -114,7 +112,7 @@ th {
 .contact-section {
   text-align: center;
   padding: 30px;
-  background: linear-gradient(135deg, #833AB4, #E1306C, #FD1D1D);
+  background: linear-gradient(135deg, #833ab4, #e1306c, #fd1d1d);
   color: white;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
@@ -146,11 +144,11 @@ th {
 /* Estilo do Instagram */
 .instagram {
   background-color: white;
-  color: #E1306C;
+  color: #e1306c;
 }
 
 .instagram:hover {
-  background-color: #E1306C;
+  background-color: #e1306c;
   color: white;
   transform: scale(1.05);
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
@@ -242,7 +240,6 @@ th {
 }
 
 #typeWriter {
-
   background-color: #ff5733;
   /* Cor laranja combinando com o tema */
   color: white;
@@ -257,18 +254,20 @@ th {
   /* Cantos arredondados */
   cursor: pointer;
   /* Mostrar ponteiro ao passar o mouse */
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   /* Fonte do botão */
   transition: all 0.3s ease;
   /* Animação suave para transições */
-  box-shadow: inset 2px 2px 2px 0px #0e0e0e, 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 2px 2px 2px 0px #0e0e0e, 7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+    4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   /* Sombra suave */
 }
 
 #typeWriter:hover {
   background-color: #ff2e00;
   /* Cor de fundo quando o mouse passa por cima */
-  box-shadow: inset 2px 2px 2px 0px #0e0e0e, 7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 2px 2px 2px 0px #0e0e0e, 7px 7px 20px 0px rgba(0, 0, 0, 0.2),
+    4px 4px 5px 0px rgba(0, 0, 0, 0.2);
   /* Sombra mais intensa */
 }
 
@@ -301,14 +300,15 @@ th {
   color: #fff;
   border-radius: 5px;
   padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
   font-weight: 500;
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-  box-shadow: inset 2px 2px 2px 0px #0e0e0e, 7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 2px 2px 2px 0px #0e0e0e, 7px 7px 20px 0px rgba(0, 0, 0, 0.1),
+    4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
   text-align: center;
 }
@@ -335,7 +335,7 @@ th {
 .btn-3:before,
 .btn-3:after {
   position: absolute;
-  content: '';
+  content: "";
   right: 0;
   top: 0;
   background: #d36200;
@@ -372,7 +372,7 @@ th {
 .btn-3 span:before,
 .btn-3 span:after {
   position: absolute;
-  content: '';
+  content: "";
   left: 0;
   bottom: 0;
   background: #00fffc;
@@ -605,10 +605,8 @@ th {
   }
 }
 
-
 /* Estilos de responsividade */
 @media screen and (max-width: 768px) {
-
   /* Ajusta o cabeçalho */
   header {
     flex-direction: column;
@@ -646,7 +644,6 @@ th {
 }
 
 @media screen and (max-width: 480px) {
-
   /* Aumenta o tamanho da fonte do título */
   h2 {
     font-size: 1.5em;
@@ -723,8 +720,155 @@ th {
 }
 
 /* Estilo quando o mouse estiver sobre a imagem */
-.event-image:hover+.tooltip {
+.event-image:hover + .tooltip {
   display: block;
 }
 
+/* Card */
+#calourada {
+  font-family: "Playfair Display", serif;
+  display: grid;
+  place-items: center;
+  min-height: 42vh;
+}
 
+/* Grid dos Cards */
+.container_card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+}
+
+/* Estilos dos Cards */
+.card {
+  padding: 20px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Efeito de Hover */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Cores dos cards */
+.verde {
+  background-color: #2ecc71;
+  color: white;
+}
+.vermelho {
+  background-color: #e74c3c;
+  color: white;
+}
+.azul {
+  background-color: #3498db;
+  color: white;
+}
+
+/* Mantendo a borda neon */
+.card::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 15px;
+  z-index: -1;
+  opacity: 0.7;
+  transition: 0.3s;
+}
+.verde::before {
+  border: 3px solid #2ecc71;
+  box-shadow: 0 0 15px #2ecc71;
+}
+.vermelho::before {
+  border: 3px solid #e74c3c;
+  box-shadow: 0 0 15px #e74c3c;
+}
+.azul::before {
+  border: 3px solid #3498db;
+  box-shadow: 0 0 15px #3498db;
+}
+
+/* Título */
+#titulo {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Estilização dos spans */
+.span-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.span-container span {
+  display: block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background 0.3s ease;
+}
+
+.span-container:hover span {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Tooltip Melhorado */
+.tooltip {
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  transform: translateY(-35px);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  white-space: nowrap;
+}
+
+.span-container:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(-40px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container_card {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
