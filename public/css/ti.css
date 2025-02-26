@@ -799,6 +799,33 @@ th {
   box-shadow: 0 0 15px #3498db;
 }
 
+/* Media Query para Responsividade */
+@media (max-width: 768px) {
+  .container_card {
+    grid-template-columns: 1fr 1fr; /* Duas colunas em telas médias */
+    gap: 15px;
+    max-width: 100%;
+  }
+
+  .card {
+    padding: 15px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container_card {
+    grid-template-columns: 1fr; /* Uma coluna em telas pequenas */
+    gap: 10px;
+  }
+
+  .card {
+    padding: 10px;
+    border-radius: 10px;
+  }
+}
+
+
 /* Título */
 #titulo {
   font-size: 2rem;
