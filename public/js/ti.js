@@ -161,17 +161,42 @@ startCountdown(eventDate);
 
 
 
+const pasta = "../public/img/calourada/"; // Caminho da pasta das imagens
+const totalImagens = 20; // Número total de imagens
+const slideshowContainer = document.querySelector(".slideshow-container");
+
+// Adiciona as imagens dinamicamente no carrossel
+const imagens = Array.from({ length: totalImagens }, (_, i) => `${pasta}img${i + 1}.jpg`);
+
+imagens.forEach(url => {
+    let slide = document.createElement("div");
+    slide.classList.add("mySlides", "fade");
+
+    let img = document.createElement("img");
+    img.src = url;
+    img.style.width = "100%";
+
+    slide.appendChild(img);
+    slideshowContainer.appendChild(slide);
+});
+
 let slideIndex = 0;
 showSlides();
 
 function showSlides() {
-  let i;
   let slides = document.getElementsByClassName("mySlides");
-  for (i = 0; i < slides.length; i++) {
+
+  // Esconde todas as imagens
+  for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
-} 
+
+  // Escolhe um índice aleatório dentro do total de slides
+  slideIndex = Math.floor(Math.random() * slides.length);
+
+  slides[slideIndex].style.display = "block";
+
+  setTimeout(showSlides, 2000); // Troca a imagem a cada 2 segundos
+}
+
+

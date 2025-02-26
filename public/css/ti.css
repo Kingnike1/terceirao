@@ -906,40 +906,6 @@ th {
   border-radius: 10px;
 }
 
-/* Botões de navegação */
-.prev,
-.next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: 45px;
-  height: 45px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  font-weight: bold;
-  font-size: 22px;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 45px;
-  transform: translateY(-50%);
-  transition: background-color 0.3s, transform 0.2s;
-  user-select: none;
-}
-
-/* Ajustando a posição dos botões */
-.prev {
-  left: 15px;
-}
-.next {
-  right: 15px;
-}
-
-/* Efeito ao passar o mouse nos botões */
-.prev:hover,
-.next:hover {
-  background-color: rgba(0, 0, 0, 0.9);
-  transform: translateY(-50%) scale(1.1);
-}
 
 /* Texto da legenda */
 .text {
@@ -1033,3 +999,4 @@ th {
   align-items: center;
   justify-content: center;
 }
+
