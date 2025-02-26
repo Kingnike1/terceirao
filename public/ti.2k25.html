@@ -57,7 +57,6 @@
 
         <nav class="nav-menu">
           <ul id="myLinks">
-            <li><div id="claroEscuro"></div></li>
             <li><a href="#eventos" class="custom-btn btn-3">Eventos</a></li>
             <li><a href="#sobre" class="custom-btn btn-3">Sobre Nós</a></li>
             <li><a href="#contato" class="custom-btn btn-3">Contato</a></li>
@@ -78,21 +77,42 @@
       <!-- About Section -->
       <section id="sobre">
         <h2>Sobre Nós</h2>
-        <button onclick="typeWriter()" id="typeWriter">Clique aqui</button>
+        <button onclick="typeWriter()" id="typeWriter">CLIQUE AQUI</button>
         <p class="event-message" id="demo"></p>
       </section>
+      <div class="pai_moldura">
 
-      <!-- Events Section -->
-      <h2 id="eventos">Calendário de Eventos dos Terceiros 2K25</h2>
-      <!-- Botão para alternar entre Modo Lista e Modo Calendário -->
-      <!-- Botão para alternar para o modo lista (somente em smartphones) -->
-      <button
-        id="toggleListView"
-        style="display: none"
-        onclick="toggleCalendarView()"
-      >
-        📋 Modo Lista
-      </button>
+        <div class="moldura">
+          <h1>Reviva os Melhores Momentos da Nossa Turma!</h1>  
+          <p>Confira abaixo o carrossel com os registros inesquecíveis da Semana de Trote e da Calourada! 🎉📸</p>
+          
+    
+          <!-- Slideshow container -->
+          <div class="slideshow-container">
+            <div class="mySlides fade">
+              <img src="../public/img/calourada/ti.jpeg" style="width: 100%" />
+            </div>
+    
+            <div class="mySlides fade">
+              <img src="../public/img/calourada/ti2.jpeg" style="width: 100%" />
+            </div>
+    
+            <div class="mySlides fade">
+              <img src="../public/img/calourada/ti3.jpeg" style="width: 100%" />
+            </div>
+    
+            <div class="mySlides fade">
+              <img src="../public/img/calourada/ti4.jpeg" style="width: 100%" />
+            </div>
+    
+      
+          </div>
+          <br />
+    
+
+        </div>
+
+      </div>
 
       <!-- Calendário -->
       <div id="calendar"></div>
@@ -113,10 +133,11 @@
               <span>1C Agro</span> <span class="tooltip">Turma de Agro</span>
             </div>
             <div class="span-container">
-              <span>2A Info</span> <span class="tooltip">Turma de Informática</span>
+              <span>2A Info</span>
+              <span class="tooltip">Turma de Informática</span>
             </div>
           </div>
-    
+
           <!-- Card Vermelho -->
           <div class="card vermelho" onclick="destacar(this)">
             <h2>Vermelho</h2>
@@ -124,13 +145,14 @@
               <span>1A Agro</span> <span class="tooltip">Turma de Agro</span>
             </div>
             <div class="span-container">
-              <span>1A Info</span> <span class="tooltip">Turma de Informática</span>
+              <span>1A Info</span>
+              <span class="tooltip">Turma de Informática</span>
             </div>
             <div class="span-container">
               <span>2A Agro</span> <span class="tooltip">Turma de Agro</span>
             </div>
           </div>
-    
+
           <!-- Card Azul -->
           <div class="card azul" onclick="destacar(this)">
             <h2>Azul</h2>
@@ -141,14 +163,15 @@
               <span>2A TMA</span> <span class="tooltip">Turma de TMA</span>
             </div>
             <div class="span-container">
-              <span>1B Info</span> <span class="tooltip">Turma de Informática</span>
+              <span>1B Info</span>
+              <span class="tooltip">Turma de Informática</span>
             </div>
             <div class="span-container">
-              <span>2B Info</span> <span class="tooltip">Turma de Informática</span>
+              <span>2B Info</span>
+              <span class="tooltip">Turma de Informática</span>
             </div>
           </div>
         </div>
-    
       </section>
 
       <!-- Seção de Contato -->
@@ -190,81 +213,81 @@
       $(document).ready(function () {
         // Função para definir a melhor visão do calendário (Mês ou Lista)
         function getCalendarView() {
-          return window.innerWidth < 768 ? 'listWeek' : 'month'
+          return window.innerWidth < 768 ? "listWeek" : "month";
         }
 
         // Inicializa o FullCalendar
-        $('#calendar').fullCalendar({
+        $("#calendar").fullCalendar({
           defaultView: getCalendarView(),
           events: [
             {
-              title: 'Dia do Pijama',
-              start: '2025-02-24',
-              description: 'Dia do Pijama',
-              location: 'INSTITUTO FERDERAL GOIANO CAMPUS CERES',
-              organizer: 'Turma de Terceiro Ano de Informatica para Internet',
-              moreInfoLink: 'https://www.instagram.com/ti.2k25',
-              tags: ['festa', 'calouros', 'social'],
-              reminder: '1 day before',
-              imageUrl: './img/segunda.jpg',
-              color: '#1abc9c',
+              title: "Dia do Pijama",
+              start: "2025-02-24",
+              description: "Dia do Pijama",
+              location: "INSTITUTO FERDERAL GOIANO CAMPUS CERES",
+              organizer: "Turma de Terceiro Ano de Informatica para Internet",
+              moreInfoLink: "https://www.instagram.com/ti.2k25",
+              tags: ["festa", "calouros", "social"],
+              reminder: "1 day before",
+              imageUrl: "./img/segunda.jpg",
+              color: "#1abc9c",
             },
             {
-              title: 'So tem aqui no Brasil',
-              start: '2025-02-25',
-              description: 'So tem aqui no Brasil.',
-              location: 'INSTITUTO FERDERAL GOIANO CAMPUS CERES',
-              organizer: 'Turma de Terceiro Ano de Informatica para Internet',
-              moreInfoLink: 'https://www.instagram.com/ti.2k25',
-              tags: ['festa', 'calouros', 'social'],
-              reminder: '1 day before',
-              imageUrl: './img/terca.jpg',
-              color: '#3498db',
+              title: "So tem aqui no Brasil",
+              start: "2025-02-25",
+              description: "So tem aqui no Brasil.",
+              location: "INSTITUTO FERDERAL GOIANO CAMPUS CERES",
+              organizer: "Turma de Terceiro Ano de Informatica para Internet",
+              moreInfoLink: "https://www.instagram.com/ti.2k25",
+              tags: ["festa", "calouros", "social"],
+              reminder: "1 day before",
+              imageUrl: "./img/terca.jpg",
+              color: "#3498db",
             },
             {
-              title: 'Infancia',
-              start: '2025-02-26',
-              description: 'Suas melhores memorias.',
-              location: 'INSTITUTO FERDERAL GOIANO CAMPUS CERES',
-              organizer: 'Turma de Terceiro Ano de Informatica para Internet',
-              moreInfoLink: 'https://www.instagram.com/ti.2k25',
-              tags: ['festa', 'calouros', 'social'],
-              reminder: '1 day before',
-              imageUrl: './img/quarta.jpg',
-              color: '#3498db',
+              title: "Infancia",
+              start: "2025-02-26",
+              description: "Suas melhores memorias.",
+              location: "INSTITUTO FERDERAL GOIANO CAMPUS CERES",
+              organizer: "Turma de Terceiro Ano de Informatica para Internet",
+              moreInfoLink: "https://www.instagram.com/ti.2k25",
+              tags: ["festa", "calouros", "social"],
+              reminder: "1 day before",
+              imageUrl: "./img/quarta.jpg",
+              color: "#3498db",
             },
             {
-              title: 'Trote da Fantasia',
-              start: '2025-02-27',
-              description: 'Festa Fantasia.',
-              location: 'INSTITUTO FERDERAL GOIANO CAMPUS CERES',
-              organizer: 'Turma de Terceiro Ano de Informatica para Internet',
-              moreInfoLink: 'https://www.instagram.com/ti.2k25',
-              tags: ['festa', 'calouros', 'social'],
-              reminder: '1 day before',
-              imageUrl: './img/quinta.jpg',
-              color: '#e74c3c',
+              title: "Trote da Fantasia",
+              start: "2025-02-27",
+              description: "Festa Fantasia.",
+              location: "INSTITUTO FERDERAL GOIANO CAMPUS CERES",
+              organizer: "Turma de Terceiro Ano de Informatica para Internet",
+              moreInfoLink: "https://www.instagram.com/ti.2k25",
+              tags: ["festa", "calouros", "social"],
+              reminder: "1 day before",
+              imageUrl: "./img/quinta.jpg",
+              color: "#e74c3c",
             },
             {
-              title: 'Calourada',
-              start: '2025-02-28',
-              description: 'Grande festa para os calouros.',
-              location: 'INSTITUTO FERDERAL GOIANO CAMPUS CERES',
-              organizer: 'Turma de Terceiro Ano de Informatica para Internet',
-              moreInfoLink: 'https://www.instagram.com/ti.2k25',
-              tags: ['festa', 'calouros', 'social'],
-              reminder: '1 day before',
-              imageUrl: './img/sexta.jpg',
-              color: '#9b59b6',
+              title: "Calourada",
+              start: "2025-02-28",
+              description: "Grande festa para os calouros.",
+              location: "INSTITUTO FERDERAL GOIANO CAMPUS CERES",
+              organizer: "Turma de Terceiro Ano de Informatica para Internet",
+              moreInfoLink: "https://www.instagram.com/ti.2k25",
+              tags: ["festa", "calouros", "social"],
+              reminder: "1 day before",
+              imageUrl: "./img/sexta.jpg",
+              color: "#9b59b6",
             },
           ],
           header: {
-            left: 'prev,next today',
-            center: 'title',
+            left: "prev,next today",
+            center: "title",
             right:
               window.innerWidth < 768
-                ? 'listWeek'
-                : 'month,agendaWeek,agendaDay',
+                ? "listWeek"
+                : "month,agendaWeek,agendaDay",
           },
           eventRender: function (event, element) {
             if (event.imageUrl) {
@@ -274,51 +297,51 @@
                   '" alt="' +
                   event.title +
                   '" style="width:100%; border-radius: 5px;">'
-              )
+              );
             }
           },
-        })
+        });
 
         // Atualiza a visualização ao redimensionar a tela
         $(window).resize(function () {
-          $('#calendar').fullCalendar('changeView', getCalendarView())
-        })
+          $("#calendar").fullCalendar("changeView", getCalendarView());
+        });
 
         // Alterna entre os modos Mês e Lista manualmente
-        $('#toggleView').on('click', function () {
-          var currentView = $('#calendar').fullCalendar('getView').name
-          var newView = currentView === 'month' ? 'listWeek' : 'month'
+        $("#toggleView").on("click", function () {
+          var currentView = $("#calendar").fullCalendar("getView").name;
+          var newView = currentView === "month" ? "listWeek" : "month";
 
-          $('#calendar').fullCalendar('changeView', newView)
-          $(this).text(newView === 'month' ? 'Modo Lista' : 'Modo Calendário')
-        })
-      })
+          $("#calendar").fullCalendar("changeView", newView);
+          $(this).text(newView === "month" ? "Modo Lista" : "Modo Calendário");
+        });
+      });
       $(document).ready(function () {
         // Detecta se o usuário está em um smartphone
         function isMobileDevice() {
-          return /Mobi|Android|iPhone/i.test(navigator.userAgent)
+          return /Mobi|Android|iPhone/i.test(navigator.userAgent);
         }
 
         // Se for um smartphone, mostra o botão
         if (isMobileDevice()) {
-          document.getElementById('toggleListView').style.display = 'block'
+          document.getElementById("toggleListView").style.display = "block";
         }
 
         // Função para alternar entre calendário normal e lista
         window.toggleCalendarView = function () {
-          var calendar = $('#calendar')
+          var calendar = $("#calendar");
 
-          if (calendar.hasClass('list-view')) {
+          if (calendar.hasClass("list-view")) {
             // Voltar ao modo calendário
-            calendar.fullCalendar('changeView', 'month')
-            calendar.removeClass('list-view')
+            calendar.fullCalendar("changeView", "month");
+            calendar.removeClass("list-view");
           } else {
             // Mudar para modo lista (agenda)
-            calendar.fullCalendar('changeView', 'agendaListWeek')
-            calendar.addClass('list-view')
+            calendar.fullCalendar("changeView", "agendaListWeek");
+            calendar.addClass("list-view");
           }
-        }
-      })
+        };
+      });
     </script>
   </body>
 </html>

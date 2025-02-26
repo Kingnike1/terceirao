@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moldura com Carrossel</title>
+    <style>
+      /* Estilos Gerais do Site */
+      body {
+        background-color: black;
+        color: aliceblue;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      /* Moldura Adaptada */
+      .moldura {
+        width: 80%;
+        max-width: 800px;
+        padding: 20px;
+        border: 10px solid #333;
+        border-radius: 15px;
+        background-color: #222;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+        text-align: center;
+      }
+
+      .moldura h1,
+      .moldura p {
+        margin: 10px 0;
+      }
+
+      /* Slideshow container */
+      .slideshow-container {
+        max-width: 500px;
+        position: relative;
+        margin: auto;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Estilização das imagens do slideshow */
+      .mySlides {
+        display: none;
+        width: 100%;
+        border-radius: 10px;
+      }
+
+      /* Botões de navegação */
+      .prev,
+      .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: 45px;
+        height: 45px;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        font-weight: bold;
+        font-size: 22px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 45px;
+        transform: translateY(-50%);
+        transition: background-color 0.3s, transform 0.2s;
+        user-select: none;
+      }
+
+      /* Ajustando a posição dos botões */
+      .prev {
+        left: 15px;
+      }
+      .next {
+        right: 15px;
+      }
+
+      /* Efeito ao passar o mouse nos botões */
+      .prev:hover,
+      .next:hover {
+        background-color: rgba(0, 0, 0, 0.9);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      /* Texto da legenda */
+      .text {
+        color: #fff;
+        font-size: 14px;
+        padding: 10px;
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        background: rgba(0, 0, 0, 0.6);
+        border-radius: 0 0 10px 10px;
+      }
+
+      /* Indicadores (pontos) */
+      .dot {
+        cursor: pointer;
+        height: 12px;
+        width: 12px;
+        margin: 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+
+      .active,
+      .dot:hover {
+        background-color: #717171;
+        transform: scale(1.2);
+      }
+
+      /* Animação de transição */
+      .fade {
+        animation-name: fade;
+        animation-duration: 1.5s;
+      }
+
+      @keyframes fade {
+        from {
+          opacity: 0.4;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      /* Ajustes para dispositivos menores */
+      @media screen and (max-width: 768px) {
+        .prev,
+        .next {
+          width: 35px;
+          height: 35px;
+          font-size: 18px;
+          line-height: 35px;
+        }
+
+        .text {
+          font-size: 12px;
+          padding: 6px;
+        }
+
+        .dot {
+          height: 10px;
+          width: 10px;
+        }
+      }
+
+      /* Caso deseje incorporar outros estilos do exemplo fornecido, insira-os abaixo */
+      /* ... */
+    </style>
+  </head>
+  <body>
+    <div class="moldura">
+      <h1>Bem-vindo ao meu site!</h1>
+      <p>Veja o carrossel abaixo:</p>
+
+      <!-- Slideshow container -->
+      <div class="slideshow-container">
+        <div class="mySlides fade">
+          <img src="../public/img/calourada/ti.jpeg" style="width: 100%" />
+        </div>
+
+        <div class="mySlides fade">
+          <img src="../public/img/calourada/ti2.jpeg" style="width: 100%" />
+        </div>
+
+        <div class="mySlides fade">
+          <img src="../public/img/calourada/ti3.jpeg" style="width: 100%" />
+        </div>
+
+        <div class="mySlides fade">
+          <img src="../public/img/calourada/ti4.jpeg" style="width: 100%" />
+        </div>
+
+        <!-- Next and previous buttons -->
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      <br />
+
+      <!-- The dots/circles -->
+      <div style="text-align: center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+      </div>
+    </div>
+
+    <script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+} 
+    </script>
+  </body>
+</html>
