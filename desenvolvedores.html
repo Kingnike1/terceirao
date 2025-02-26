@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #b71c1c;
+            background-color: #000000;
             text-align: center;
             margin: 0;
             padding: 0;
@@ -16,7 +16,7 @@
             max-width: 900px;
             margin: 40px auto;
             padding: 30px;
-            background: #f5f5f5;
+            background: #ebe4e4;
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
             border-radius: 15px;
         }
@@ -40,9 +40,10 @@
             width: 220px;
             text-align: center;
             color: white;
+            cursor: pointer;
         }
         .dev-card:nth-child(odd) {
-            background: linear-gradient(135deg, #ff5252, #d32f2f);
+            background: linear-gradient(135deg, #080be6, #f7e30c);
         }
         .dev-card:nth-child(even) {
             background: linear-gradient(135deg, #42a5f5, #1e88e5);
@@ -67,24 +68,29 @@
             color: #ffeb3b;
         }
         .dev-card h3 {
-            color: #bbdefb;
+            color: #ed7904;
         }
         .dev-card p {
             font-size: 16px;
             opacity: 0.9;
         }
     </style>
+    <script>
+        function redirectToProfile(dev) {
+            window.location.href = dev + ".html";
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Desenvolvedores do Projeto</h1>
         <div class="dev-list">
-            <div class="dev-card">
-                <img src="https://via.placeholder.com/90" alt="Foto do Desenvolvedor">
+            <div class="dev-card" onclick="redirectToProfile('kaio-barbosa')">
+                <img src="Naruto-Classico-e-Naruto-Shippuden-fillers.webp" alt="Foto do Desenvolvedor">
                 <h3>Kaio Barbosa</h3>
-                <p>Função no projeto</p>
+                <p>Desenvolvedor front end</p>
             </div>
-            <div class="dev-card">
+            <div class="dev-card" onclick="redirectToProfile('pablo-almeida')">
                 <img src="https://via.placeholder.com/90" alt="Foto do Desenvolvedor">
                 <h2>Pablo Almeida</h2>
                 <p>Função no projeto</p>
