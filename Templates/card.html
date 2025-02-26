@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards Animados</title>
+    <style>
+        #calourada {
+            display: grid;
+            place-items: center;
+        }
+        /* Grid dos cards */
+        .container_card {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+        }
+
+        /* Estilos dos cards */
+        .card {
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: white;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Efeito de hover */
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Cores dos cards */
+        .verde { background-color: #2ecc71; }
+        .vermelho { background-color: #e74c3c; }
+        .azul { background-color: #3498db; }
+
+        /* Estilos dos spans */
+        .card span {
+            display: block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            margin-top: 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        /* Responsividade */
+@media (max-width: 768px) {
+    .container_card {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+
+    .card {
+        max-width: 300px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container_card {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        max-width: 90%;
+        padding: 15px;
+    }
+}
+
+/* Destaque no modo claro */
+#titulo {
+    background: linear-gradient(135deg, #ff9800, #ff5722);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#titulo {
+    font-size: 2rem; /* Tamanho grande */
+    font-weight: bold;
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+    </style>
+</head>
+<body id="calourada">
+    <h2 id="titulo">Distribuição dos Grupos para a Calourada</h2>
+    <div class="container_card">
+        <!-- Card Verde -->
+        <div class="card verde">
+            <h2>Verde</h2>
+            <span>1B Agro</span>
+            <span>1A TMA</span>
+            <span>1C Agro</span>
+            <span>2A Info</span>
+        </div>
+
+        <!-- Card Vermelho -->
+        <div class="card vermelho">
+            <h2>Vermelho</h2>
+            <span>1A Agro</span>
+            <span>1A Info</span>
+            <span>2A Agro</span>
+        </div>
+
+        <!-- Card Azul -->
+        <div class="card azul">
+            <h2>Azul</h2>
+            <span>2B Agro</span>
+            <span>2A TMA</span>
+            <span>1B Info</span>
+            <span>2B Info</span>
+        </div>
+    </div>
+
+</body>
+</html>
