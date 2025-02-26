@@ -67,7 +67,6 @@ main {
   height: 100px;
   width: 100px;
 }
-
 /* Estilos do calendário */
 table {
   width: 100%;
@@ -727,3 +726,5 @@ th {
 .event-image:hover+.tooltip {
   display: block;
 }
+
+
