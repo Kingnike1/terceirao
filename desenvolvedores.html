@@ -40,6 +40,7 @@
             width: 220px;
             text-align: center;
             color: white;
+            cursor: pointer;
         }
         .dev-card:nth-child(odd) {
             background: linear-gradient(135deg, #080be6, #f7e30c);
@@ -74,17 +75,22 @@
             opacity: 0.9;
         }
     </style>
+    <script>
+        function redirectToProfile(dev) {
+            window.location.href = dev + ".html";
+        }
+    </script>
 </head>
 <body>
     <div class="container">
         <h1>Desenvolvedores do Projeto</h1>
         <div class="dev-list">
-            <div class="dev-card">
+            <div class="dev-card" onclick="redirectToProfile('kaio-barbosa')">
                 <img src="Naruto-Classico-e-Naruto-Shippuden-fillers.webp" alt="Foto do Desenvolvedor">
                 <h3>Kaio Barbosa</h3>
                 <p>Desenvolvedor front end</p>
             </div>
-            <div class="dev-card">
+            <div class="dev-card" onclick="redirectToProfile('pablo-almeida')">
                 <img src="https://via.placeholder.com/90" alt="Foto do Desenvolvedor">
                 <h2>Pablo Almeida</h2>
                 <p>Função no projeto</p>
