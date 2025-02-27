@@ -129,6 +129,16 @@ function startCountdown(targetDate) {
       if (timeLeft < 0) {
           document.querySelector(".countdown-container").innerHTML = "<h2>🎉 O grande dia chegou! 🎉</h2>";
           clearInterval(interval);
+
+          // Disparar confetes
+          confetti({
+            particleCount: 200,
+            spread: 90,
+            origin: { y: 0.6 },
+            colors: ['#ff0000', '#00ff00', '#0000ff'], // Cores personalizadas
+            gravity: 0.5, // Gravidade reduzida
+            scalar: 1.2 // Tamanho das partículas
+          });
           return;
       }
 
@@ -151,7 +161,7 @@ function startCountdown(targetDate) {
 let savedDate = localStorage.getItem("eventDate");
 
 if (!savedDate) {
-  let eventDate = new Date("2025-02-28T08:00:00").getTime(); // Defina a data do evento
+  let eventDate = new Date("2025-02-28T07:00:00").getTime(); // Defina a data do evento
   localStorage.setItem("eventDate", eventDate); // Salva no LocalStorage
 } else {
   eventDate = parseInt(savedDate);
