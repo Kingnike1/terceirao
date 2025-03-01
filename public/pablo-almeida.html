@@ -1,99 +1,158 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Meu Perfil</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #555050, #000000);
-            color: rgb(231, 222, 222);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            overflow: hidden;
+      /* Reset básico */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Estilização geral */
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background: linear-gradient(135deg, #1a1a1a, #000000);
+        color: #f1f1f1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      /* Cabeçalho */
+      header {
+        margin-bottom: 15px;
+      }
+
+      .profile-pic {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        transition: transform 0.3s;
+      }
+
+      .profile-pic:hover {
+        transform: scale(1.05);
+      }
+
+      /* Container principal */
+      .container {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+        width: 85%;
+        max-width: 500px;
+        backdrop-filter: blur(12px);
+        animation: fadeIn 1.2s ease-in-out;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      /* Animação de entrada */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
         }
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-            width: 80%;
-            max-width: 600px;
-            backdrop-filter: blur(10px);
-            animation: fadeIn 1.5s ease-in-out;
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        h1, p {
-            margin: 10px 0;
-        }
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            border: 3px solid rgb(0, 0, 0);
-        }
-        .animated-text {
-            font-size: 18px;
-            opacity: 0;
-            animation: slideIn 2s ease-in-out forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        .button {
-            margin-top: 30px;
-            padding: 20px 90px;
-            background: #000000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .button:hover {
-            background: #5d596a;
-        }
-        .links {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .links a {
-            display: block;
-            color: #dad7bc;
-            text-decoration: none;
-            font-size: 18px;
-            margin: 10px 0;
-            transition: 0.3s;
-        }
-        .links a:hover {
-            color: #ffffff;
-        }
+      }
+
+      /* Links */
+      .links {
+        margin-top: 20px;
+      }
+
+      .links a {
+        display: block;
+        color: #dad7bc;
+        text-decoration: none;
+        font-size: 18px;
+        margin: 10px 0;
+        transition: color 0.3s, transform 0.2s;
+      }
+
+      .links a:hover {
+        color: #ffffff;
+        transform: scale(1.05);
+      }
+
+      /* Citação */
+      blockquote {
+        font-style: italic;
+        opacity: 0.8;
+        border-left: 3px solid #dad7bc;
+        padding-left: 10px;
+        margin: 15px 0;
+      }
+
+      /* Botão */
+      .button {
+        margin-top: 25px;
+        padding: 12px 50px;
+        background: linear-gradient(135deg, #444, #222);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background 0.3s, transform 0.2s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .button:hover {
+        background: linear-gradient(135deg, #666, #333);
+        transform: scale(1.05);
+      }
+
+      /* Rodapé */
+      footer {
+        margin-top: 20px;
+        font-size: 14px;
+        opacity: 0.7;
+      }
     </style>
-</head>
-<body>
-    <div class="container">
-        <img src="logo_pablo.jpeg" alt="Sua Foto" class="profile-pic">
-        <h1>Aoba, eu sou Kingnike</h1>
-        <p class="animated-text">Desenvolvedor front end</p>
-        <div class="links">
-            <a href="https://github.com/Kingnike1" target="_blank">Meu GitHub</a>
-            <a href="#">O resto vai ser encaixando...</a>
-            <a href="https://www.instagram.com/pabloalmeidathe1" target="_blank">Contato</a>
-        </div>
-        <button class="button" onclick="alert('Obrigado por visitar!')">Saiba Mais</button>
-    </div>
-</body>
+  </head>
+  <body>
+    <header>
+      <img src="logo_pablo.jpeg" alt="Foto de Kingnike" class="profile-pic" />
+      <h1>Aoba, eu sou Kingnike</h1>
+      <p class="animated-text">Desenvolvedor Front-end</p>
+    </header>
+
+    <main class="container">
+      <nav class="links">
+        <a href="https://github.com/Kingnike1" target="_blank">Meu GitHub</a>
+        <blockquote>
+          "A vida deve ser compreendida para trás, mas vivida para frente." —
+          Søren Kierkegaard.
+        </blockquote>
+        <a href="https://www.instagram.com/pabloalmeidathe1" target="_blank"
+          >Contato</a
+        >
+      </nav>
+
+      <button
+        class="button"
+        onclick="alert('Obrigado por visitar!')"
+        aria-label="Saiba mais sobre Kingnike"
+      >
+        Saiba Mais
+      </button>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Kingnike. Todos os direitos reservados.</p>
+    </footer>
+  </body>
 </html>
